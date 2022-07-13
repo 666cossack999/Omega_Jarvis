@@ -44,7 +44,7 @@
             this.btnPushBase.Name = "btnPushBase";
             this.btnPushBase.Size = new System.Drawing.Size(260, 41);
             this.btnPushBase.TabIndex = 1;
-            this.btnPushBase.Text = "Прописать Базы";
+            this.btnPushBase.Text = "Сохранить";
             this.btnPushBase.UseVisualStyleBackColor = true;
             this.btnPushBase.Click += new System.EventHandler(this.btnPushBase_Click);
             // 

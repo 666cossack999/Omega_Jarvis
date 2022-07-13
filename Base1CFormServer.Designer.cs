@@ -28,88 +28,89 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.cb1cDoSrv = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnPushBaseSrv = new System.Windows.Forms.Button();
+            this.cbUatSrv = new System.Windows.Forms.CheckBox();
+            this.cbZupSrv = new System.Windows.Forms.CheckBox();
+            this.cbUprSrv = new System.Windows.Forms.CheckBox();
+            this.cb1cBuhCorpSrv = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // checkBox1
+            // cb1cDoSrv
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(6, 19);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(80, 17);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "checkBox1";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.cb1cDoSrv.AutoSize = true;
+            this.cb1cDoSrv.Location = new System.Drawing.Point(6, 19);
+            this.cb1cDoSrv.Name = "cb1cDoSrv";
+            this.cb1cDoSrv.Size = new System.Drawing.Size(134, 17);
+            this.cb1cDoSrv.TabIndex = 0;
+            this.cb1cDoSrv.Text = "1C Документооборот";
+            this.cb1cDoSrv.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.checkBox5);
-            this.groupBox1.Controls.Add(this.checkBox4);
-            this.groupBox1.Controls.Add(this.checkBox3);
-            this.groupBox1.Controls.Add(this.checkBox2);
-            this.groupBox1.Controls.Add(this.checkBox1);
+            this.groupBox1.Controls.Add(this.btnPushBaseSrv);
+            this.groupBox1.Controls.Add(this.cbUatSrv);
+            this.groupBox1.Controls.Add(this.cbZupSrv);
+            this.groupBox1.Controls.Add(this.cbUprSrv);
+            this.groupBox1.Controls.Add(this.cb1cBuhCorpSrv);
+            this.groupBox1.Controls.Add(this.cb1cDoSrv);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(275, 187);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
-            // checkBox2
+            // btnPushBaseSrv
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(6, 42);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(80, 17);
-            this.checkBox2.TabIndex = 0;
-            this.checkBox2.Text = "checkBox1";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.btnPushBaseSrv.Location = new System.Drawing.Point(6, 134);
+            this.btnPushBaseSrv.Name = "btnPushBaseSrv";
+            this.btnPushBaseSrv.Size = new System.Drawing.Size(263, 43);
+            this.btnPushBaseSrv.TabIndex = 1;
+            this.btnPushBaseSrv.Text = "Сохранить";
+            this.btnPushBaseSrv.UseVisualStyleBackColor = true;
+            this.btnPushBaseSrv.Click += new System.EventHandler(this.btnPushBaseSrv_Click);
             // 
-            // checkBox3
+            // cbUatSrv
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(6, 65);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(80, 17);
-            this.checkBox3.TabIndex = 0;
-            this.checkBox3.Text = "checkBox1";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.cbUatSrv.AutoSize = true;
+            this.cbUatSrv.Location = new System.Drawing.Point(6, 111);
+            this.cbUatSrv.Name = "cbUatSrv";
+            this.cbUatSrv.Size = new System.Drawing.Size(48, 17);
+            this.cbUatSrv.TabIndex = 0;
+            this.cbUatSrv.Text = "УАТ";
+            this.cbUatSrv.UseVisualStyleBackColor = true;
             // 
-            // checkBox4
+            // cbZupSrv
             // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(6, 88);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(80, 17);
-            this.checkBox4.TabIndex = 0;
-            this.checkBox4.Text = "checkBox1";
-            this.checkBox4.UseVisualStyleBackColor = true;
+            this.cbZupSrv.AutoSize = true;
+            this.cbZupSrv.Location = new System.Drawing.Point(6, 88);
+            this.cbZupSrv.Name = "cbZupSrv";
+            this.cbZupSrv.Size = new System.Drawing.Size(49, 17);
+            this.cbZupSrv.TabIndex = 0;
+            this.cbZupSrv.Text = "ЗУП";
+            this.cbZupSrv.UseVisualStyleBackColor = true;
             // 
-            // checkBox5
+            // cbUprSrv
             // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(6, 111);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(80, 17);
-            this.checkBox5.TabIndex = 0;
-            this.checkBox5.Text = "checkBox1";
-            this.checkBox5.UseVisualStyleBackColor = true;
+            this.cbUprSrv.AutoSize = true;
+            this.cbUprSrv.Location = new System.Drawing.Point(6, 65);
+            this.cbUprSrv.Name = "cbUprSrv";
+            this.cbUprSrv.Size = new System.Drawing.Size(99, 17);
+            this.cbUprSrv.TabIndex = 0;
+            this.cbUprSrv.Text = "Управляющий";
+            this.cbUprSrv.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // cb1cBuhCorpSrv
             // 
-            this.button1.Location = new System.Drawing.Point(6, 134);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(188, 43);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.cb1cBuhCorpSrv.AutoSize = true;
+            this.cb1cBuhCorpSrv.Location = new System.Drawing.Point(6, 42);
+            this.cb1cBuhCorpSrv.Name = "cb1cBuhCorpSrv";
+            this.cb1cBuhCorpSrv.Size = new System.Drawing.Size(134, 17);
+            this.cb1cBuhCorpSrv.TabIndex = 0;
+            this.cb1cBuhCorpSrv.Text = "Бухгалтерия корп 3.0";
+            this.cb1cBuhCorpSrv.UseVisualStyleBackColor = true;
             // 
             // Base1CFormServer
             // 
@@ -118,7 +119,8 @@
             this.ClientSize = new System.Drawing.Size(299, 209);
             this.Controls.Add(this.groupBox1);
             this.Name = "Base1CFormServer";
-            this.Text = "Base1CFormServer";
+            this.Text = "Базы 1С на сервере";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Base1CFormServer_FormClosing);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -127,12 +129,12 @@
 
         #endregion
 
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox cb1cDoSrv;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.CheckBox checkBox5;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.Button btnPushBaseSrv;
+        private System.Windows.Forms.CheckBox cbUatSrv;
+        private System.Windows.Forms.CheckBox cbZupSrv;
+        private System.Windows.Forms.CheckBox cbUprSrv;
+        private System.Windows.Forms.CheckBox cb1cBuhCorpSrv;
     }
 }

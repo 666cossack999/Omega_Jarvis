@@ -33,10 +33,12 @@
             this.labelPC = new System.Windows.Forms.Label();
             this.labelLogin = new System.Windows.Forms.Label();
             this.eventBox = new System.Windows.Forms.GroupBox();
-            this.btnBase1C = new System.Windows.Forms.Button();
-            this.rbToPC = new System.Windows.Forms.RadioButton();
-            this.rbToServer = new System.Windows.Forms.RadioButton();
             this.gbBase1C = new System.Windows.Forms.GroupBox();
+            this.btnBase1C = new System.Windows.Forms.Button();
+            this.rbToServer = new System.Windows.Forms.RadioButton();
+            this.rbToPC = new System.Windows.Forms.RadioButton();
+            this.progress = new System.Windows.Forms.ProgressBar();
+            this.lblProgress = new System.Windows.Forms.Label();
             this.eventBox.SuspendLayout();
             this.gbBase1C.SuspendLayout();
             this.SuspendLayout();
@@ -77,44 +79,14 @@
             // 
             // eventBox
             // 
+            this.eventBox.Controls.Add(this.lblProgress);
+            this.eventBox.Controls.Add(this.progress);
             this.eventBox.Controls.Add(this.gbBase1C);
             this.eventBox.Location = new System.Drawing.Point(12, 55);
             this.eventBox.Name = "eventBox";
             this.eventBox.Size = new System.Drawing.Size(321, 383);
             this.eventBox.TabIndex = 2;
             this.eventBox.TabStop = false;
-            // 
-            // btnBase1C
-            // 
-            this.btnBase1C.Location = new System.Drawing.Point(6, 19);
-            this.btnBase1C.Name = "btnBase1C";
-            this.btnBase1C.Size = new System.Drawing.Size(215, 43);
-            this.btnBase1C.TabIndex = 3;
-            this.btnBase1C.Text = "Прописать базы 1С";
-            this.btnBase1C.UseVisualStyleBackColor = true;
-            this.btnBase1C.Click += new System.EventHandler(this.btnBase1C_Click);
-            // 
-            // rbToPC
-            // 
-            this.rbToPC.AutoSize = true;
-            this.rbToPC.Location = new System.Drawing.Point(223, 19);
-            this.rbToPC.Name = "rbToPC";
-            this.rbToPC.Size = new System.Drawing.Size(57, 17);
-            this.rbToPC.TabIndex = 4;
-            this.rbToPC.TabStop = true;
-            this.rbToPC.Text = "На ПК";
-            this.rbToPC.UseVisualStyleBackColor = true;
-            // 
-            // rbToServer
-            // 
-            this.rbToServer.AutoSize = true;
-            this.rbToServer.Location = new System.Drawing.Point(223, 42);
-            this.rbToServer.Name = "rbToServer";
-            this.rbToServer.Size = new System.Drawing.Size(79, 17);
-            this.rbToServer.TabIndex = 4;
-            this.rbToServer.TabStop = true;
-            this.rbToServer.Text = "На Сервер";
-            this.rbToServer.UseVisualStyleBackColor = true;
             // 
             // gbBase1C
             // 
@@ -127,6 +99,54 @@
             this.gbBase1C.TabIndex = 5;
             this.gbBase1C.TabStop = false;
             this.gbBase1C.Text = "Базы 1С";
+            // 
+            // btnBase1C
+            // 
+            this.btnBase1C.Location = new System.Drawing.Point(6, 19);
+            this.btnBase1C.Name = "btnBase1C";
+            this.btnBase1C.Size = new System.Drawing.Size(215, 43);
+            this.btnBase1C.TabIndex = 3;
+            this.btnBase1C.Text = "Прописать базы 1С";
+            this.btnBase1C.UseVisualStyleBackColor = true;
+            this.btnBase1C.Click += new System.EventHandler(this.btnBase1C_Click);
+            // 
+            // rbToServer
+            // 
+            this.rbToServer.AutoSize = true;
+            this.rbToServer.Checked = true;
+            this.rbToServer.Location = new System.Drawing.Point(223, 42);
+            this.rbToServer.Name = "rbToServer";
+            this.rbToServer.Size = new System.Drawing.Size(79, 17);
+            this.rbToServer.TabIndex = 4;
+            this.rbToServer.TabStop = true;
+            this.rbToServer.Text = "На Сервер";
+            this.rbToServer.UseVisualStyleBackColor = true;
+            // 
+            // rbToPC
+            // 
+            this.rbToPC.AutoSize = true;
+            this.rbToPC.Location = new System.Drawing.Point(223, 19);
+            this.rbToPC.Name = "rbToPC";
+            this.rbToPC.Size = new System.Drawing.Size(57, 17);
+            this.rbToPC.TabIndex = 4;
+            this.rbToPC.Text = "На ПК";
+            this.rbToPC.UseVisualStyleBackColor = true;
+            // 
+            // progress
+            // 
+            this.progress.Location = new System.Drawing.Point(0, 360);
+            this.progress.Name = "progress";
+            this.progress.Size = new System.Drawing.Size(321, 23);
+            this.progress.TabIndex = 5;
+            this.progress.Visible = false;
+            // 
+            // lblProgress
+            // 
+            this.lblProgress.AutoSize = true;
+            this.lblProgress.Location = new System.Drawing.Point(0, 344);
+            this.lblProgress.Name = "lblProgress";
+            this.lblProgress.Size = new System.Drawing.Size(0, 13);
+            this.lblProgress.TabIndex = 6;
             // 
             // Form1
             // 
@@ -141,6 +161,7 @@
             this.Name = "Form1";
             this.Text = "Omega_Jarvis";
             this.eventBox.ResumeLayout(false);
+            this.eventBox.PerformLayout();
             this.gbBase1C.ResumeLayout(false);
             this.gbBase1C.PerformLayout();
             this.ResumeLayout(false);
@@ -159,6 +180,8 @@
         private System.Windows.Forms.RadioButton rbToServer;
         private System.Windows.Forms.RadioButton rbToPC;
         private System.Windows.Forms.GroupBox gbBase1C;
+        private System.Windows.Forms.Label lblProgress;
+        private System.Windows.Forms.ProgressBar progress;
     }
 }
 

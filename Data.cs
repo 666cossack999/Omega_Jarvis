@@ -4,6 +4,11 @@
     {
         public static string PcName { get; set; }
         public static string Login { get; set; }
+        public static string ConfigOnServer { get; set; }
+        public static string ServerImagePath { get; set; }
+
+
+
 
         static public string doc = @"CommonInfoBases=\\m-1capp01\Список ярлыков БД\S8_Doc.v8i";
         static public string buh = @"CommonInfoBases=\\m-1capp01\Список ярлыков БД\БП_КОРП_3.0.v8i";

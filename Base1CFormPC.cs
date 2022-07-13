@@ -78,6 +78,8 @@ namespace Omega_Jarvis
                 //close the file
                 sw.Close();
 
+            Base1CFormPC.ActiveForm.Close();
+
         }
     }
 }
