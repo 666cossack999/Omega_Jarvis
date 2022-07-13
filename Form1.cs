@@ -1,5 +1,10 @@
 ﻿using System;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
+using System.IO;
 using System.Management.Automation;
+using System.Management.Automation.Runspaces;
+using System.Text;
 using System.Windows.Forms;
 
 namespace Omega_Jarvis
@@ -34,6 +39,7 @@ namespace Omega_Jarvis
                                          .AddCommand("Get-AdUser")
                                          .AddParameter("Identity", Data.Login)
                                          .Invoke();
+
                 lblProgress.Text = "Ищу путь до виртуального диска";
                 progress.Value = 30;
 
@@ -48,6 +54,7 @@ namespace Omega_Jarvis
                                              .AddCommand("Mount-DiskImage")
                                              .AddParameter("ImagePath", Data.ServerImagePath)
                                              .Invoke();
+
                 lblProgress.Text = "Вычисляю букву диска";
                 progress.Value = 60;
 
@@ -68,6 +75,10 @@ namespace Omega_Jarvis
                         Data.ConfigOnServer = $@"{letter}:\AppData\Roaming\1C\1CEStart\1cestart.cfg";
 
                         var path = Data.ConfigOnServer;
+                    }
+                    else 
+                    {
+                        
                     }
 
                 }
@@ -101,6 +112,13 @@ namespace Omega_Jarvis
             Data.Login = txtLogin.Text;
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            string node = Engine.GetNode();
+
+            Console.ReadLine();
+        }
     }
 }
 
