@@ -33,14 +33,13 @@
             this.labelPC = new System.Windows.Forms.Label();
             this.labelLogin = new System.Windows.Forms.Label();
             this.eventBox = new System.Windows.Forms.GroupBox();
+            this.lblProgress = new System.Windows.Forms.Label();
+            this.progress = new System.Windows.Forms.ProgressBar();
             this.gbBase1C = new System.Windows.Forms.GroupBox();
             this.btnBase1C = new System.Windows.Forms.Button();
             this.rbToServer = new System.Windows.Forms.RadioButton();
             this.rbToPC = new System.Windows.Forms.RadioButton();
-            this.progress = new System.Windows.Forms.ProgressBar();
-            this.lblProgress = new System.Windows.Forms.Label();
-            this.rbAdGroups = new System.Windows.Forms.RadioButton();
-            this.button1 = new System.Windows.Forms.Button();
+            this.tbLog = new System.Windows.Forms.TextBox();
             this.eventBox.SuspendLayout();
             this.gbBase1C.SuspendLayout();
             this.SuspendLayout();
@@ -81,7 +80,6 @@
             // 
             // eventBox
             // 
-            this.eventBox.Controls.Add(this.button1);
             this.eventBox.Controls.Add(this.lblProgress);
             this.eventBox.Controls.Add(this.progress);
             this.eventBox.Controls.Add(this.gbBase1C);
@@ -91,15 +89,31 @@
             this.eventBox.TabIndex = 2;
             this.eventBox.TabStop = false;
             // 
+            // lblProgress
+            // 
+            this.lblProgress.AutoSize = true;
+            this.lblProgress.Location = new System.Drawing.Point(0, 344);
+            this.lblProgress.Name = "lblProgress";
+            this.lblProgress.Size = new System.Drawing.Size(0, 13);
+            this.lblProgress.TabIndex = 6;
+            // 
+            // progress
+            // 
+            this.progress.Location = new System.Drawing.Point(0, 360);
+            this.progress.Name = "progress";
+            this.progress.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.progress.Size = new System.Drawing.Size(367, 23);
+            this.progress.TabIndex = 5;
+            this.progress.Visible = false;
+            // 
             // gbBase1C
             // 
-            this.gbBase1C.Controls.Add(this.rbAdGroups);
             this.gbBase1C.Controls.Add(this.btnBase1C);
             this.gbBase1C.Controls.Add(this.rbToServer);
             this.gbBase1C.Controls.Add(this.rbToPC);
             this.gbBase1C.Location = new System.Drawing.Point(6, 10);
             this.gbBase1C.Name = "gbBase1C";
-            this.gbBase1C.Size = new System.Drawing.Size(355, 89);
+            this.gbBase1C.Size = new System.Drawing.Size(355, 69);
             this.gbBase1C.TabIndex = 5;
             this.gbBase1C.TabStop = false;
             this.gbBase1C.Text = "Базы 1С";
@@ -108,7 +122,7 @@
             // 
             this.btnBase1C.Location = new System.Drawing.Point(6, 19);
             this.btnBase1C.Name = "btnBase1C";
-            this.btnBase1C.Size = new System.Drawing.Size(215, 63);
+            this.btnBase1C.Size = new System.Drawing.Size(215, 40);
             this.btnBase1C.TabIndex = 3;
             this.btnBase1C.Text = "Прописать базы 1С";
             this.btnBase1C.UseVisualStyleBackColor = true;
@@ -136,49 +150,21 @@
             this.rbToPC.Text = "На ПК";
             this.rbToPC.UseVisualStyleBackColor = true;
             // 
-            // progress
+            // tbLog
             // 
-            this.progress.Location = new System.Drawing.Point(0, 360);
-            this.progress.Name = "progress";
-            this.progress.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.progress.Size = new System.Drawing.Size(367, 23);
-            this.progress.TabIndex = 5;
-            this.progress.Visible = false;
-            // 
-            // lblProgress
-            // 
-            this.lblProgress.AutoSize = true;
-            this.lblProgress.Location = new System.Drawing.Point(0, 344);
-            this.lblProgress.Name = "lblProgress";
-            this.lblProgress.Size = new System.Drawing.Size(0, 13);
-            this.lblProgress.TabIndex = 6;
-            // 
-            // rbAdGroups
-            // 
-            this.rbAdGroups.AutoSize = true;
-            this.rbAdGroups.Location = new System.Drawing.Point(223, 65);
-            this.rbAdGroups.Name = "rbAdGroups";
-            this.rbAdGroups.Size = new System.Drawing.Size(119, 17);
-            this.rbAdGroups.TabIndex = 5;
-            this.rbAdGroups.TabStop = true;
-            this.rbAdGroups.Text = "Прописать группы";
-            this.rbAdGroups.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(12, 210);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.tbLog.Location = new System.Drawing.Point(12, 444);
+            this.tbLog.Multiline = true;
+            this.tbLog.Name = "tbLog";
+            this.tbLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tbLog.Size = new System.Drawing.Size(367, 80);
+            this.tbLog.TabIndex = 7;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(384, 445);
+            this.ClientSize = new System.Drawing.Size(384, 533);
+            this.Controls.Add(this.tbLog);
             this.Controls.Add(this.eventBox);
             this.Controls.Add(this.labelLogin);
             this.Controls.Add(this.labelPC);
@@ -209,8 +195,7 @@
         private System.Windows.Forms.GroupBox gbBase1C;
         private System.Windows.Forms.Label lblProgress;
         private System.Windows.Forms.ProgressBar progress;
-        private System.Windows.Forms.RadioButton rbAdGroups;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox tbLog;
     }
 }
 

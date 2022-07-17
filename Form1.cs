@@ -1,24 +1,18 @@
 ﻿using System;
-using System.Collections.ObjectModel;
-using System.Diagnostics;
-using System.IO;
-using System.Management.Automation;
-using System.Management.Automation.Runspaces;
-using System.Text;
 using System.Windows.Forms;
 
 namespace Omega_Jarvis
 {
     public partial class Form1 : Form
     {
-
+        
         public Form1()
         {
             InitializeComponent();
+
             txtPC.Text = "m-stis20";
             txtLogin.Text = "dmitriev_ei";
         }
-
 
 
         public void btnBase1C_Click(object sender, EventArgs e)
@@ -30,63 +24,45 @@ namespace Omega_Jarvis
             }
             else if (rbToServer.Checked)
             {
+                progress.Value += 10;
                 lblProgress.Text = "Вычисляю ID пользователя";
+                PushToLog("Вычисляю ID пользователя");
                 progress.Visible = true;
-                progress.Value = 10;
-
-                //Получаем ИД диска
-                var psGetSid = PowerShell.Create()
-                                         .AddCommand("Get-AdUser")
-                                         .AddParameter("Identity", Data.Login)
-                                         .Invoke();
+                string sid = Engine.GetUserSid();
 
                 lblProgress.Text = "Ищу путь до виртуального диска";
-                progress.Value = 30;
-
-                var sid = psGetSid[0].Properties["SID"].Value.ToString();
-                Data.ServerImagePath = $@"\\ts-fs\d$\Shares\Profiles\Profiles8\UVHD-{sid}.vhdx";
-
+                PushToLog("Ищу путь до виртуального диска");
+                progress.Value += 20;
+                           
                 //Монтируем диск
                 lblProgress.Text = "Монтирую диск к вашему ПК";
-                progress.Value = 50;
+                PushToLog("Монтирую диск к вашему ПК");
+                progress.Value += 10;
+                bool Flag = Engine.MountDisk(sid);
 
-                var psMountImage = PowerShell.Create()
-                                             .AddCommand("Mount-DiskImage")
-                                             .AddParameter("ImagePath", Data.ServerImagePath)
-                                             .Invoke();
-
-                lblProgress.Text = "Вычисляю букву диска";
-                progress.Value = 60;
-
-                //Узнаём буквы всех дисков
-                var psGetVolume = PowerShell.Create()
-                                       .AddCommand("Get-Volume")
-                                       .Invoke();
-                //Узнаём букву примонтированного диска и присваиваем путь до файла
-                for (int i = 0; i < psGetVolume.Count; i++)
+                if (Flag)
                 {
-                    progress.Value += 5;
-
-                    var getVolume = psGetVolume[i].Properties["FileSystemLabel"].Value.ToString();
-
-                    if (getVolume == "User Disk")
-                    {
-                        var letter = psGetVolume[i].Properties["DriveLetter"].Value.ToString();
-                        Data.ConfigOnServer = $@"{letter}:\AppData\Roaming\1C\1CEStart\1cestart.cfg";
-
-                        var path = Data.ConfigOnServer;
-                    }
-                    else 
-                    {
-                        
-                    }
+                    lblProgress.Text = "Ищу конфиг на сервере";
+                    PushToLog("Ищу конфиг на сервере");
+                    progress.Value += 30;
+                    Data.ConfigOnServer = Engine.GetPathOnServer();
+                }
+                else
+                {
+                    lblProgress.Text = "Диск занят, ищу ноду...";
+                    PushToLog("Диск занят, ищу ноду...");
+                    progress.Value += 10;
+                    string node = Engine.GetNode();
+                    Data.ConfigOnServer = $@"\\{node}\c$\Users\{Data.Login}\AppData\Roaming\1C\1CEStart\1cestart.cfg";
 
                 }
-                progress.Value = 100;
+                lblProgress.Text = "готово";
+                PushToLog("готово");
+                progress.Value = 0;
                 progress.Visible = false;
                 lblProgress.Visible = false;
 
-                Base1CFormServer base1CForm = new Base1CFormServer();
+                Base1CFormServer base1CForm = new Base1CFormServer(this);
                 base1CForm.Show();
             }
             else
@@ -112,13 +88,11 @@ namespace Omega_Jarvis
             Data.Login = txtLogin.Text;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public void PushToLog(string text)
         {
-
-            string node = Engine.GetNode();
-
-            Console.ReadLine();
+            tbLog.AppendText (text + Environment.NewLine);
         }
+
     }
 }
 
