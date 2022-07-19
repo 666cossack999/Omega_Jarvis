@@ -6,12 +6,13 @@ namespace Omega_Jarvis
 {
     public partial class Base1CFormServer : Form
     {
-        readonly Form1 form1;
-        public Base1CFormServer(Form1 owner)
-        {
-            form1 = owner;
-            InitializeComponent();
+        private Action<string> _PushToLogDelegate;
 
+        public Base1CFormServer(Action<string> pushToLogDelegate)
+        {
+
+            InitializeComponent();
+            _PushToLogDelegate = pushToLogDelegate;
             //Путь до файла
             try
             {
@@ -95,18 +96,18 @@ namespace Omega_Jarvis
             {
                 sw.WriteLine(Data.buh);
                 Engine.AddUserToGroup(Data.Login, Data.adBuh);
-                form1.PushToLog($"Добавлен в группу: {Data.adBuh}");
+                _PushToLogDelegate($"Добавлен в группу: {Data.adBuh}");
             }
             else
             {
                 try
                 {
                     Engine.DeleteUserFromGroup(Data.Login, Data.adBuh);
-                    form1.PushToLog($"Удалён из группы: {Data.adBuh}");
+                    _PushToLogDelegate($"Удалён из группы: {Data.adBuh}");
                 }
                 catch (Exception)
                 {
-                    form1.PushToLog($"Не состоит в группе {Data.adBuh}");
+                    _PushToLogDelegate($"Не состоит в группе {Data.adBuh}");
                 }
                 
             }
@@ -115,18 +116,18 @@ namespace Omega_Jarvis
             {
                 sw.WriteLine(Data.uat);
                 Engine.AddUserToGroup(Data.Login, Data.adUat);
-                form1.PushToLog($"Добавлен в группу: {Data.adUat}");
+                _PushToLogDelegate($"Добавлен в группу: {Data.adUat}");
             }
             else
             {
                 try
                 {
                     Engine.DeleteUserFromGroup(Data.Login, Data.adUat);
-                    form1.PushToLog($"Удалён из группы: {Data.adUat}");
+                    _PushToLogDelegate($"Удалён из группы: {Data.adUat}");
                 }
                 catch (Exception)
                 {
-                    form1.PushToLog($"Не состоит в группе {Data.adUat}");
+                    _PushToLogDelegate($"Не состоит в группе {Data.adUat}");
                 }                
             }
                    
@@ -134,18 +135,18 @@ namespace Omega_Jarvis
             {
                 sw.WriteLine(Data.upr);
                 Engine.AddUserToGroup(Data.Login, Data.adUpr);
-                form1.PushToLog($"Добавлен в группу: {Data.adUpr}");
+                _PushToLogDelegate($"Добавлен в группу: {Data.adUpr}");
             }
             else
             {
                 try
                 {
                     Engine.DeleteUserFromGroup(Data.Login, Data.adUpr);
-                    form1.PushToLog($"Удалён из группы: {Data.adUpr}");
+                    _PushToLogDelegate($"Удалён из группы: {Data.adUpr}");
                 }
                 catch (Exception)
                 {
-                    form1.PushToLog($"Не состоит в группе {Data.adUpr}");
+                    _PushToLogDelegate($"Не состоит в группе {Data.adUpr}");
                 }
                 
             }
@@ -154,18 +155,18 @@ namespace Omega_Jarvis
             {
                 sw.WriteLine(Data.zup);
                 Engine.AddUserToGroup(Data.Login, Data.adZup);
-                form1.PushToLog($"Добавлен в группу: {Data.adZup}");
+                _PushToLogDelegate($"Добавлен в группу: {Data.adZup}");
             }
             else
             {
                 try
                 {
                     Engine.DeleteUserFromGroup(Data.Login, Data.adZup);
-                    form1.PushToLog($"Удалён из группы: {Data.adZup}");
+                    _PushToLogDelegate($"Удалён из группы: {Data.adZup}");
                 }
                 catch (Exception)
                 {
-                    form1.PushToLog($"Не состоит в группе {Data.adZup}");
+                    _PushToLogDelegate($"Не состоит в группе {Data.adZup}");
                 }
                 
             }
@@ -174,18 +175,18 @@ namespace Omega_Jarvis
             {
                 sw.WriteLine(Data.kanban);
                 Engine.AddUserToGroup(Data.Login, Data.adKanban);
-                form1.PushToLog($"Добавлен в группу: {Data.adKanban}");
+                _PushToLogDelegate($"Добавлен в группу: {Data.adKanban}");
             }
             else
             {
                 try
                 {
                     Engine.DeleteUserFromGroup(Data.Login, Data.adKanban);
-                    form1.PushToLog($"Удалён из группы: {Data.adKanban}");
+                    _PushToLogDelegate($"Удалён из группы: {Data.adKanban}");
                 }
                 catch (Exception)
                 {
-                    form1.PushToLog($"Не состоит в группе {Data.adKanban}");
+                    _PushToLogDelegate($"Не состоит в группе {Data.adKanban}");
                 }
                 
             }
@@ -194,18 +195,18 @@ namespace Omega_Jarvis
             {
                 sw.WriteLine(Data.timeTracking);
                 Engine.AddUserToGroup(Data.Login, Data.adTimeTracking);
-                form1.PushToLog($"Добавлен в группу: {Data.adTimeTracking}");
+                _PushToLogDelegate($"Добавлен в группу: {Data.adTimeTracking}");
             }
             else
             {
                 try
                 {
                     Engine.DeleteUserFromGroup(Data.Login, Data.adTimeTracking);
-                    form1.PushToLog($"Удалён из группы: {Data.adTimeTracking}");
+                    _PushToLogDelegate($"Удалён из группы: {Data.adTimeTracking}");
                 }
                 catch (Exception)
                 {
-                    form1.PushToLog($"Не состоит в группе {Data.adTimeTracking}");
+                    _PushToLogDelegate($"Не состоит в группе {Data.adTimeTracking}");
                 }
                 
             }
@@ -214,18 +215,18 @@ namespace Omega_Jarvis
             {
                 sw.WriteLine(Data.buh20Rb);
                 Engine.AddUserToGroup(Data.Login, Data.adBuh20Rb);
-                form1.PushToLog($"Добавлен в группу: {Data.adBuh20Rb}");
+                _PushToLogDelegate($"Добавлен в группу: {Data.adBuh20Rb}");
             }
             else
             {
                 try
                 {
                     Engine.DeleteUserFromGroup(Data.Login, Data.adBuh20Rb);
-                    form1.PushToLog($"Удалён из группы: {Data.adBuh20Rb}");
+                    _PushToLogDelegate($"Удалён из группы: {Data.adBuh20Rb}");
                 }
                 catch (Exception)
                 {
-                    form1.PushToLog($"Не состоит в группе {Data.adBuh20Rb}");
+                    _PushToLogDelegate($"Не состоит в группе {Data.adBuh20Rb}");
                 }
                 
             }
@@ -234,18 +235,18 @@ namespace Omega_Jarvis
             {
                 sw.WriteLine(Data.buhTruck);
                 Engine.AddUserToGroup(Data.Login, Data.adBuhTruck);
-                form1.PushToLog($"Добавлен в группу: {Data.adBuhTruck}");
+                _PushToLogDelegate($"Добавлен в группу: {Data.adBuhTruck}");
             }
             else
             {
                 try
                 {
                     Engine.DeleteUserFromGroup(Data.Login, Data.adBuhTruck);
-                    form1.PushToLog($"Удалён из группы: {Data.adBuhTruck}");
+                    _PushToLogDelegate($"Удалён из группы: {Data.adBuhTruck}");
                 }
                 catch (Exception)
                 {
-                    form1.PushToLog($"Не состоит в группе {Data.adBuhTruck}");
+                    _PushToLogDelegate($"Не состоит в группе {Data.adBuhTruck}");
                 }
                 
             }
@@ -254,18 +255,18 @@ namespace Omega_Jarvis
             {
                 sw.WriteLine(Data.buhRbCopy);
                 Engine.AddUserToGroup(Data.Login, Data.adBuhRbCopy);
-                form1.PushToLog($"Добавлен в группу: {Data.adBuhRbCopy}");
+                _PushToLogDelegate($"Добавлен в группу: {Data.adBuhRbCopy}");
             }
             else
             {
                 try
                 {
                     Engine.DeleteUserFromGroup(Data.Login, Data.adBuhRbCopy);
-                    form1.PushToLog($"Удалён из группы: {Data.adBuhRbCopy}");
+                    _PushToLogDelegate($"Удалён из группы: {Data.adBuhRbCopy}");
                 }
                 catch (Exception)
                 {
-                    form1.PushToLog($"Не состоит в группе {Data.adBuhRbCopy}");
+                    _PushToLogDelegate($"Не состоит в группе {Data.adBuhRbCopy}");
                 }
                 
             }
@@ -274,18 +275,18 @@ namespace Omega_Jarvis
             {
                 sw.WriteLine(Data.zupRb);
                 Engine.AddUserToGroup(Data.Login, Data.adZupRb);
-                form1.PushToLog($"Добавлен в группу: {Data.adZupRb}");
+                _PushToLogDelegate($"Добавлен в группу: {Data.adZupRb}");
             }
             else
             {
                 try
                 {
                     Engine.DeleteUserFromGroup(Data.Login, Data.adZupRb);
-                    form1.PushToLog($"Удалён из группы: {Data.adZupRb}");
+                    _PushToLogDelegate($"Удалён из группы: {Data.adZupRb}");
                 }
                 catch (Exception)
                 {
-                    form1.PushToLog($"Не состоит в группе {Data.adZupRb}");
+                    _PushToLogDelegate($"Не состоит в группе {Data.adZupRb}");
                 }
                 
             }
@@ -293,7 +294,7 @@ namespace Omega_Jarvis
             //close the file
             sw.Close();
 
-            Base1CFormServer.ActiveForm.Close();
+            ActiveForm.Dispose();
         }
 
         private void Base1CFormServer_FormClosing(object sender, FormClosingEventArgs e)

@@ -5,7 +5,9 @@ namespace Omega_Jarvis
 {
     public partial class Form1 : Form
     {
-        
+
+        private Action<string> _pushToLogValueDelegate;
+
         public Form1()
         {
             InitializeComponent();
@@ -62,7 +64,12 @@ namespace Omega_Jarvis
                 progress.Visible = false;
                 lblProgress.Visible = false;
 
-                Base1CFormServer base1CForm = new Base1CFormServer(this);
+                if (_pushToLogValueDelegate == null)
+                {
+                    _pushToLogValueDelegate += PushToLog;
+                }                
+
+                Base1CFormServer base1CForm = new Base1CFormServer(_pushToLogValueDelegate);
                 base1CForm.Show();
             }
             else
