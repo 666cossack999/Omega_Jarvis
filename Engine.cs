@@ -376,7 +376,7 @@ namespace Omega_Jarvis
         /// <param name="newIp">Новый IP</param>
         public async static void  ChangeIpPrinterAsync(string printerName, string computerName, string newIp, Action<string> pushToLogDelegate)
         {
-            pushToLogDelegate($"Запустил процесс смены IP принтера {printerName} на {computerName}");
+            pushToLogDelegate($"Меняю IP принтера {printerName} на {computerName}");
 
             await Task.Run(() => ChangeIpPrinter(printerName, computerName, newIp));
 
@@ -384,6 +384,36 @@ namespace Omega_Jarvis
             pushToLogDelegate($"Старый порт принтера удалён");
         }
 
+        /// <summary>
+        /// Изменяет имя принтера
+        /// </summary>
+        /// <param name="computerName">Имя машины</param>
+        /// <param name="oldName">Старое имя</param>
+        /// <param name="newName">Новое имя</param>
+        private static void ChangeNamePrinter(string computerName, string oldName, string newName)
+        {
+            var psRenamePrinter = PowerShell.Create()
+                                            .AddCommand("Rename-Printer")
+                                            .AddParameter("ComputerName", computerName)
+                                            .AddParameter("Name", oldName)
+                                            .AddParameter("NewName", newName)
+                                            .Invoke();
+        }
+
+        /// <summary>
+        /// Изменяет имя принтера асинхронно
+        /// </summary>
+        /// <param name="computerName">Имя машины</param>
+        /// <param name="oldName">Старое имя</param>
+        /// <param name="newName">Новое имя</param>
+        public async static void ChangeNamePrinterAsync(string computerName, string oldName, string newName, Action<string> pushToLogDelegate)
+        {
+            pushToLogDelegate($"Меняю имя принтера {oldName} на {newName} на машине {computerName}");
+
+            await Task.Run(() => ChangeNamePrinter(computerName, oldName, newName));
+
+            pushToLogDelegate($"У принтера {oldName} сменилось имя на: {newName} на машине: {computerName}");
+        }
         /// <summary>
         /// Выгружает список установленых драйверов принтера на машине
         /// </summary>
