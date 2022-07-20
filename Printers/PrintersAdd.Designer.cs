@@ -33,15 +33,15 @@
             this.txtPrinterName = new System.Windows.Forms.TextBox();
             this.lbPrinterName = new System.Windows.Forms.Label();
             this.lbPrinterDriver = new System.Windows.Forms.Label();
-            this.gbPrinters = new System.Windows.Forms.GroupBox();
-            this.cbPrinterToPc = new System.Windows.Forms.CheckBox();
-            this.cbPrinterToTs01 = new System.Windows.Forms.CheckBox();
-            this.cbPrinterToRdp = new System.Windows.Forms.CheckBox();
-            this.cbPrinterToMwmts02 = new System.Windows.Forms.CheckBox();
-            this.cbPrinterToMwmts04 = new System.Windows.Forms.CheckBox();
-            this.btnPrinterAdd = new System.Windows.Forms.Button();
+            this.gbPrintersAdd = new System.Windows.Forms.GroupBox();
             this.cboxDrivers = new System.Windows.Forms.ComboBox();
-            this.gbPrinters.SuspendLayout();
+            this.btnPrinterAdd = new System.Windows.Forms.Button();
+            this.cbPrinterToMwmts04 = new System.Windows.Forms.CheckBox();
+            this.cbPrinterToMwmts02 = new System.Windows.Forms.CheckBox();
+            this.cbPrinterToRdp = new System.Windows.Forms.CheckBox();
+            this.cbPrinterToTs01 = new System.Windows.Forms.CheckBox();
+            this.cbPrinterToPc = new System.Windows.Forms.CheckBox();
+            this.gbPrintersAdd.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtPrinterIp
@@ -85,75 +85,33 @@
             this.lbPrinterDriver.TabIndex = 1;
             this.lbPrinterDriver.Text = "Имя драйвера принтера";
             // 
-            // gbPrinters
+            // gbPrintersAdd
             // 
-            this.gbPrinters.Controls.Add(this.cboxDrivers);
-            this.gbPrinters.Controls.Add(this.btnPrinterAdd);
-            this.gbPrinters.Controls.Add(this.cbPrinterToMwmts04);
-            this.gbPrinters.Controls.Add(this.cbPrinterToMwmts02);
-            this.gbPrinters.Controls.Add(this.cbPrinterToRdp);
-            this.gbPrinters.Controls.Add(this.cbPrinterToTs01);
-            this.gbPrinters.Controls.Add(this.cbPrinterToPc);
-            this.gbPrinters.Controls.Add(this.lbPrinterIp);
-            this.gbPrinters.Controls.Add(this.lbPrinterDriver);
-            this.gbPrinters.Controls.Add(this.txtPrinterIp);
-            this.gbPrinters.Controls.Add(this.lbPrinterName);
-            this.gbPrinters.Controls.Add(this.txtPrinterName);
-            this.gbPrinters.Location = new System.Drawing.Point(12, 12);
-            this.gbPrinters.Name = "gbPrinters";
-            this.gbPrinters.Size = new System.Drawing.Size(534, 97);
-            this.gbPrinters.TabIndex = 2;
-            this.gbPrinters.TabStop = false;
+            this.gbPrintersAdd.Controls.Add(this.cboxDrivers);
+            this.gbPrintersAdd.Controls.Add(this.btnPrinterAdd);
+            this.gbPrintersAdd.Controls.Add(this.cbPrinterToMwmts04);
+            this.gbPrintersAdd.Controls.Add(this.cbPrinterToMwmts02);
+            this.gbPrintersAdd.Controls.Add(this.cbPrinterToRdp);
+            this.gbPrintersAdd.Controls.Add(this.cbPrinterToTs01);
+            this.gbPrintersAdd.Controls.Add(this.cbPrinterToPc);
+            this.gbPrintersAdd.Controls.Add(this.lbPrinterIp);
+            this.gbPrintersAdd.Controls.Add(this.lbPrinterDriver);
+            this.gbPrintersAdd.Controls.Add(this.txtPrinterIp);
+            this.gbPrintersAdd.Controls.Add(this.lbPrinterName);
+            this.gbPrintersAdd.Controls.Add(this.txtPrinterName);
+            this.gbPrintersAdd.Location = new System.Drawing.Point(12, 12);
+            this.gbPrintersAdd.Name = "gbPrintersAdd";
+            this.gbPrintersAdd.Size = new System.Drawing.Size(534, 97);
+            this.gbPrintersAdd.TabIndex = 2;
+            this.gbPrintersAdd.TabStop = false;
             // 
-            // cbPrinterToPc
+            // cboxDrivers
             // 
-            this.cbPrinterToPc.AutoSize = true;
-            this.cbPrinterToPc.Location = new System.Drawing.Point(9, 62);
-            this.cbPrinterToPc.Name = "cbPrinterToPc";
-            this.cbPrinterToPc.Size = new System.Drawing.Size(58, 17);
-            this.cbPrinterToPc.TabIndex = 2;
-            this.cbPrinterToPc.Text = "На ПК";
-            this.cbPrinterToPc.UseVisualStyleBackColor = true;
-            // 
-            // cbPrinterToTs01
-            // 
-            this.cbPrinterToTs01.AutoSize = true;
-            this.cbPrinterToTs01.Location = new System.Drawing.Point(73, 62);
-            this.cbPrinterToTs01.Name = "cbPrinterToTs01";
-            this.cbPrinterToTs01.Size = new System.Drawing.Size(69, 17);
-            this.cbPrinterToTs01.TabIndex = 2;
-            this.cbPrinterToTs01.Text = "На TS01";
-            this.cbPrinterToTs01.UseVisualStyleBackColor = true;
-            // 
-            // cbPrinterToRdp
-            // 
-            this.cbPrinterToRdp.AutoSize = true;
-            this.cbPrinterToRdp.Location = new System.Drawing.Point(148, 62);
-            this.cbPrinterToRdp.Name = "cbPrinterToRdp";
-            this.cbPrinterToRdp.Size = new System.Drawing.Size(66, 17);
-            this.cbPrinterToRdp.TabIndex = 2;
-            this.cbPrinterToRdp.Text = "На RDP";
-            this.cbPrinterToRdp.UseVisualStyleBackColor = true;
-            // 
-            // cbPrinterToMwmts02
-            // 
-            this.cbPrinterToMwmts02.AutoSize = true;
-            this.cbPrinterToMwmts02.Location = new System.Drawing.Point(220, 62);
-            this.cbPrinterToMwmts02.Name = "cbPrinterToMwmts02";
-            this.cbPrinterToMwmts02.Size = new System.Drawing.Size(90, 17);
-            this.cbPrinterToMwmts02.TabIndex = 2;
-            this.cbPrinterToMwmts02.Text = "На m-wmts02";
-            this.cbPrinterToMwmts02.UseVisualStyleBackColor = true;
-            // 
-            // cbPrinterToMwmts04
-            // 
-            this.cbPrinterToMwmts04.AutoSize = true;
-            this.cbPrinterToMwmts04.Location = new System.Drawing.Point(316, 62);
-            this.cbPrinterToMwmts04.Name = "cbPrinterToMwmts04";
-            this.cbPrinterToMwmts04.Size = new System.Drawing.Size(90, 17);
-            this.cbPrinterToMwmts04.TabIndex = 2;
-            this.cbPrinterToMwmts04.Text = "На m-wmts04";
-            this.cbPrinterToMwmts04.UseVisualStyleBackColor = true;
+            this.cboxDrivers.FormattingEnabled = true;
+            this.cboxDrivers.Location = new System.Drawing.Point(332, 31);
+            this.cboxDrivers.Name = "cboxDrivers";
+            this.cboxDrivers.Size = new System.Drawing.Size(196, 21);
+            this.cboxDrivers.TabIndex = 3;
             // 
             // btnPrinterAdd
             // 
@@ -165,24 +123,66 @@
             this.btnPrinterAdd.UseVisualStyleBackColor = true;
             this.btnPrinterAdd.Click += new System.EventHandler(this.btnPrinterAdd_Click);
             // 
-            // cboxDrivers
+            // cbPrinterToMwmts04
             // 
-            this.cboxDrivers.FormattingEnabled = true;
-            this.cboxDrivers.Location = new System.Drawing.Point(332, 31);
-            this.cboxDrivers.Name = "cboxDrivers";
-            this.cboxDrivers.Size = new System.Drawing.Size(196, 21);
-            this.cboxDrivers.TabIndex = 3;
+            this.cbPrinterToMwmts04.AutoSize = true;
+            this.cbPrinterToMwmts04.Location = new System.Drawing.Point(316, 62);
+            this.cbPrinterToMwmts04.Name = "cbPrinterToMwmts04";
+            this.cbPrinterToMwmts04.Size = new System.Drawing.Size(90, 17);
+            this.cbPrinterToMwmts04.TabIndex = 2;
+            this.cbPrinterToMwmts04.Text = "На m-wmts04";
+            this.cbPrinterToMwmts04.UseVisualStyleBackColor = true;
+            // 
+            // cbPrinterToMwmts02
+            // 
+            this.cbPrinterToMwmts02.AutoSize = true;
+            this.cbPrinterToMwmts02.Location = new System.Drawing.Point(220, 62);
+            this.cbPrinterToMwmts02.Name = "cbPrinterToMwmts02";
+            this.cbPrinterToMwmts02.Size = new System.Drawing.Size(90, 17);
+            this.cbPrinterToMwmts02.TabIndex = 2;
+            this.cbPrinterToMwmts02.Text = "На m-wmts02";
+            this.cbPrinterToMwmts02.UseVisualStyleBackColor = true;
+            // 
+            // cbPrinterToRdp
+            // 
+            this.cbPrinterToRdp.AutoSize = true;
+            this.cbPrinterToRdp.Location = new System.Drawing.Point(148, 62);
+            this.cbPrinterToRdp.Name = "cbPrinterToRdp";
+            this.cbPrinterToRdp.Size = new System.Drawing.Size(66, 17);
+            this.cbPrinterToRdp.TabIndex = 2;
+            this.cbPrinterToRdp.Text = "На RDP";
+            this.cbPrinterToRdp.UseVisualStyleBackColor = true;
+            // 
+            // cbPrinterToTs01
+            // 
+            this.cbPrinterToTs01.AutoSize = true;
+            this.cbPrinterToTs01.Location = new System.Drawing.Point(73, 62);
+            this.cbPrinterToTs01.Name = "cbPrinterToTs01";
+            this.cbPrinterToTs01.Size = new System.Drawing.Size(69, 17);
+            this.cbPrinterToTs01.TabIndex = 2;
+            this.cbPrinterToTs01.Text = "На TS01";
+            this.cbPrinterToTs01.UseVisualStyleBackColor = true;
+            // 
+            // cbPrinterToPc
+            // 
+            this.cbPrinterToPc.AutoSize = true;
+            this.cbPrinterToPc.Location = new System.Drawing.Point(9, 62);
+            this.cbPrinterToPc.Name = "cbPrinterToPc";
+            this.cbPrinterToPc.Size = new System.Drawing.Size(58, 17);
+            this.cbPrinterToPc.TabIndex = 2;
+            this.cbPrinterToPc.Text = "На ПК";
+            this.cbPrinterToPc.UseVisualStyleBackColor = true;
             // 
             // PrintersAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(558, 252);
-            this.Controls.Add(this.gbPrinters);
+            this.ClientSize = new System.Drawing.Size(558, 122);
+            this.Controls.Add(this.gbPrintersAdd);
             this.Name = "PrintersAdd";
             this.Text = "Добавить принтер";
-            this.gbPrinters.ResumeLayout(false);
-            this.gbPrinters.PerformLayout();
+            this.gbPrintersAdd.ResumeLayout(false);
+            this.gbPrintersAdd.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -194,7 +194,7 @@
         private System.Windows.Forms.TextBox txtPrinterName;
         private System.Windows.Forms.Label lbPrinterName;
         private System.Windows.Forms.Label lbPrinterDriver;
-        private System.Windows.Forms.GroupBox gbPrinters;
+        private System.Windows.Forms.GroupBox gbPrintersAdd;
         private System.Windows.Forms.CheckBox cbPrinterToMwmts04;
         private System.Windows.Forms.CheckBox cbPrinterToMwmts02;
         private System.Windows.Forms.CheckBox cbPrinterToRdp;

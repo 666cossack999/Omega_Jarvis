@@ -59,16 +59,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Base1CFormPC.cs">
+    <Compile Include="Base1C\Base1CFormPC.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Base1CFormPC.Designer.cs">
+    <Compile Include="Base1C\Base1CFormPC.Designer.cs">
       <DependentUpon>Base1CFormPC.cs</DependentUpon>
     </Compile>
-    <Compile Include="Base1CFormServer.cs">
+    <Compile Include="Base1C\Base1CFormServer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Base1CFormServer.Designer.cs">
+    <Compile Include="Base1C\Base1CFormServer.Designer.cs">
       <DependentUpon>Base1CFormServer.cs</DependentUpon>
     </Compile>
     <Compile Include="Data.cs" />
@@ -79,25 +79,34 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="PrintersAdd.cs">
+    <Compile Include="Printers\PrintersAdd.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PrintersAdd.Designer.cs">
+    <Compile Include="Printers\PrintersAdd.Designer.cs">
       <DependentUpon>PrintersAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Printers\PrintersRemove.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Printers\PrintersRemove.Designer.cs">
+      <DependentUpon>PrintersRemove.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Base1CFormPC.resx">
+    <EmbeddedResource Include="Base1C\Base1CFormPC.resx">
       <DependentUpon>Base1CFormPC.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Base1CFormServer.resx">
+    <EmbeddedResource Include="Base1C\Base1CFormServer.resx">
       <DependentUpon>Base1CFormServer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PrintersAdd.resx">
+    <EmbeddedResource Include="Printers\PrintersAdd.resx">
       <DependentUpon>PrintersAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Printers\PrintersRemove.resx">
+      <DependentUpon>PrintersRemove.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

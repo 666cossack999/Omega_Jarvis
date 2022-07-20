@@ -283,6 +283,34 @@ namespace Omega_Jarvis
         }
 
         /// <summary>
+        /// Удаляет принтер
+        /// </summary>
+        /// <param name="printerName">Имя принтера</param>
+        /// <param name="computerName">Имя компьютера</param>
+        private static void RemovePrinter(string printerName, string computerName)
+        {
+            var removePrinter = PowerShell.Create()
+                                          .AddCommand("Remove-Printer")
+                                          .AddParameter("ComputerName", computerName)
+                                          .AddParameter("Name", printerName)
+                                          .Invoke();
+        }
+
+        /// <summary>
+        /// Удаляет принтер асинхронно
+        /// </summary>
+        /// <param name="printerName">Имя принтера</param>
+        /// <param name="computerName">Имя компьютера</param>
+        public async static void RemovePrinterAsync(string printerName, string computerName, Action<string> pushToLogDelegate)
+        {
+            pushToLogDelegate($"Запустил процесс добавления принтера {printerName} на {computerName}");
+
+            await Task.Run(() => RemovePrinter(printerName, computerName));
+
+            pushToLogDelegate($"Принтер {printerName} удалён с: {computerName}");
+        }
+
+        /// <summary>
         /// Выгружает список установленых драйверов принтера на машине
         /// </summary>
         /// <param name="computerName">машина</param>

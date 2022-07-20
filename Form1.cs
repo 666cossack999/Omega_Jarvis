@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Omega_Jarvis.Printers;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
@@ -180,11 +181,17 @@ namespace Omega_Jarvis
             {
                 _pcChecked = true;
             }
-
+            //Добавляем принтеры
             if (rbPrintersAdd.Checked)
             {
                 PrintersAdd printersAdd = new PrintersAdd(_pushToLogValueDelegate, _pcChecked);
                 printersAdd.Show();
+            }
+            //Удаляем принтеры
+            if (rbPrintersRemove.Checked)
+            {
+                PrintersRemove printersRemove = new PrintersRemove(_pushToLogValueDelegate, _pcChecked);
+                printersRemove.Show();
             }
         }
 
