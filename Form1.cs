@@ -11,6 +11,7 @@ namespace Omega_Jarvis
         private Action<string> _pushToLogValueDelegate;
         private Action _activatePcFlagsDelegate;
         private Action _activateLoginFlagsDelegate;
+        private bool _pcChecked = false;
 
 
         public Form1()
@@ -107,9 +108,6 @@ namespace Omega_Jarvis
             btnBase1C.Enabled = false;
             rb1CToPC.Enabled = false;
             rb1CToPC.Checked = false;
-            //Дективируем контролы для принтеров
-            btnPrinters.Enabled = false;
-            rbPrintersAdd.Enabled = false;
         }
 
         /// <summary>
@@ -122,13 +120,6 @@ namespace Omega_Jarvis
             rb1CToPC.Enabled = true;
             rb1CToPC.Checked = true;
             btnBase1C.Enabled = true;
-            //активируем контролы для принтеров
-            rbPrintersAdd.Enabled = true;
-            rbPrintersAdd.Checked = true;
-            rbPrintersChangeIp.Enabled = true;
-            rbPrintersChangeName.Enabled = true;
-            rbPrintersRemove.Enabled = true;
-            btnPrinters.Enabled = true;
         }
 
         /// <summary>
@@ -154,12 +145,6 @@ namespace Omega_Jarvis
             rb1CToServer.Enabled = true;
             rb1CToServer.Checked = true;
             btnBase1C.Enabled = true;
-            //Активируем контролы для принтеров
-            rbPrintersRemove.Enabled = true;
-            rbPrintersChangeName.Enabled = true;
-            rbPrintersChangeIp.Enabled = true;
-            rbPrintersChangeIp.Checked = true;
-            btnPrinters.Enabled = true;
         }
 
         /// <summary>
@@ -191,9 +176,14 @@ namespace Omega_Jarvis
 
         private void btnPrinters_Click(object sender, EventArgs e)
         {
+            if (Data.PcName != null)
+            {
+                _pcChecked = true;
+            }
+
             if (rbPrintersAdd.Checked)
             {
-                PrintersAdd printersAdd = new PrintersAdd(_pushToLogValueDelegate);
+                PrintersAdd printersAdd = new PrintersAdd(_pushToLogValueDelegate, _pcChecked);
                 printersAdd.Show();
             }
         }

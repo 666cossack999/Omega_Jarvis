@@ -83,6 +83,7 @@ namespace Omega_Jarvis
                 activatePcFlagDelegate();
                 Data.PcName = pcName;
             }
+            
         }
 
         /// <summary>

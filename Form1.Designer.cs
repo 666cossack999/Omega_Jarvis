@@ -113,7 +113,6 @@
             // rbPrintersChangeName
             // 
             this.rbPrintersChangeName.AutoSize = true;
-            this.rbPrintersChangeName.Enabled = false;
             this.rbPrintersChangeName.Location = new System.Drawing.Point(248, 42);
             this.rbPrintersChangeName.Name = "rbPrintersChangeName";
             this.rbPrintersChangeName.Size = new System.Drawing.Size(101, 17);
@@ -124,7 +123,6 @@
             // rbPrintersRemove
             // 
             this.rbPrintersRemove.AutoSize = true;
-            this.rbPrintersRemove.Enabled = false;
             this.rbPrintersRemove.Location = new System.Drawing.Point(173, 42);
             this.rbPrintersRemove.Name = "rbPrintersRemove";
             this.rbPrintersRemove.Size = new System.Drawing.Size(68, 17);
@@ -135,7 +133,6 @@
             // rbPrintersChangeIp
             // 
             this.rbPrintersChangeIp.AutoSize = true;
-            this.rbPrintersChangeIp.Enabled = false;
             this.rbPrintersChangeIp.Location = new System.Drawing.Point(248, 19);
             this.rbPrintersChangeIp.Name = "rbPrintersChangeIp";
             this.rbPrintersChangeIp.Size = new System.Drawing.Size(89, 17);
@@ -146,17 +143,17 @@
             // rbPrintersAdd
             // 
             this.rbPrintersAdd.AutoSize = true;
-            this.rbPrintersAdd.Enabled = false;
+            this.rbPrintersAdd.Checked = true;
             this.rbPrintersAdd.Location = new System.Drawing.Point(173, 19);
             this.rbPrintersAdd.Name = "rbPrintersAdd";
             this.rbPrintersAdd.Size = new System.Drawing.Size(75, 17);
             this.rbPrintersAdd.TabIndex = 6;
+            this.rbPrintersAdd.TabStop = true;
             this.rbPrintersAdd.Text = "Добавить";
             this.rbPrintersAdd.UseVisualStyleBackColor = true;
             // 
             // btnPrinters
             // 
-            this.btnPrinters.Enabled = false;
             this.btnPrinters.Location = new System.Drawing.Point(6, 19);
             this.btnPrinters.Name = "btnPrinters";
             this.btnPrinters.Size = new System.Drawing.Size(160, 40);

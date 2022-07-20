@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32516.85
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Omega_Jarvis", "Omega_Jarvis.csproj", "{ADD551E6-AD7E-4B4E-8844-F5526D18D1EC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ADD551E6-AD7E-4B4E-8844-F5526D18D1EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADD551E6-AD7E-4B4E-8844-F5526D18D1EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADD551E6-AD7E-4B4E-8844-F5526D18D1EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADD551E6-AD7E-4B4E-8844-F5526D18D1EC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {32BBE214-110C-4BCD-9F2C-041B5B193A1B}
+	EndGlobalSection
+EndGlobal

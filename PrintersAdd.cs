@@ -14,12 +14,12 @@ namespace Omega_Jarvis
     {
         private Action<string> _PushToLogDelegate;
 
-        public PrintersAdd(Action<string> pushToLogDelegate)
+        public PrintersAdd(Action<string> pushToLogDelegate, bool pcChecked)
         {
             InitializeComponent();
             cboxDrivers.DataSource = Data.PrinterDrivers;
-
             _PushToLogDelegate = pushToLogDelegate;
+            cbPrinterToPc.Enabled = pcChecked;
         }
 
         private void btnPrinterAdd_Click(object sender, EventArgs e)
