@@ -1,4 +1,6 @@
-﻿namespace Omega_Jarvis
+﻿using System.Collections.Generic;
+
+namespace Omega_Jarvis
 {
     public static class Data
     {
@@ -6,6 +8,7 @@
         public static string Login { get; set; }
         public static string ConfigOnServer { get; set; }
         public static string ServerImagePath { get; set; }
+        public static List<string> PrinterDrivers { get; set; }
 
 
         //Группы 1С в AD

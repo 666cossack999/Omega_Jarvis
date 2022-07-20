@@ -13,59 +13,58 @@ namespace Omega_Jarvis
         {
             InitializeComponent();
 
-
-            //Путь до файла
-            StreamReader sr = new StreamReader(path, System.Text.Encoding.Default);
-            //Читаем первую строку
-            var line = sr.ReadLine();
-            //Продолжаем читать весь файл
-            while (line != null)
-            {
-                switch (line)
+                //Путь до файла
+                StreamReader sr = new StreamReader(path, System.Text.Encoding.Default);
+                //Читаем первую строку
+                var line = sr.ReadLine();
+                //Продолжаем читать весь файл
+                while (line != null)
                 {
-                    case Data.doc:
-                         cb1cDoPc.Checked = true;
-                         break;
-                    case Data.buh:
-                         cb1cBuhCorpPc.Checked = true;
-                         break;
-                    case Data.upr:
-                         cbUprPc.Checked = true;
-                         break;
-                    case Data.zup:
-                         cbZupPc.Checked = true;
-                         break;
-                    case Data.uat:
-                         cbUatPc.Checked = true;
-                         break;
-                    case Data.kanban:
-                         cbKanbanPc.Checked = true;
-                         break;
-                    case Data.timeTracking:
-                        cbTimeTrackPc.Checked = true;
-                        break;
-                    case Data.buh20Rb:
-                        cbBuh20RbPc.Checked = true;
-                        break;
-                    case Data.buhTruck:
-                        cbBuhTruckRbPc.Checked = true;
-                        break;
-                    case Data.buhRbCopy:
-                        cbBuhRbCopyPc.Checked = true;
-                        break;
-                    case Data.zupRb:
-                        cbZupRbPc.Checked = true;
-                        break;
+                    switch (line)
+                    {
+                        case Data.doc:
+                            cb1cDoPc.Checked = true;
+                            break;
+                        case Data.buh:
+                            cb1cBuhCorpPc.Checked = true;
+                            break;
+                        case Data.upr:
+                            cbUprPc.Checked = true;
+                            break;
+                        case Data.zup:
+                            cbZupPc.Checked = true;
+                            break;
+                        case Data.uat:
+                            cbUatPc.Checked = true;
+                            break;
+                        case Data.kanban:
+                            cbKanbanPc.Checked = true;
+                            break;
+                        case Data.timeTracking:
+                            cbTimeTrackPc.Checked = true;
+                            break;
+                        case Data.buh20Rb:
+                            cbBuh20RbPc.Checked = true;
+                            break;
+                        case Data.buhTruck:
+                            cbBuhTruckRbPc.Checked = true;
+                            break;
+                        case Data.buhRbCopy:
+                            cbBuhRbCopyPc.Checked = true;
+                            break;
+                        case Data.zupRb:
+                            cbZupRbPc.Checked = true;
+                            break;
 
-                    default:
-                        break;
+                        default:
+                            break;
+                    }
+
+                    //Читаем следующую строку
+                    line = sr.ReadLine();
                 }
-
-                //Читаем следующую строку
-                line = sr.ReadLine();
-            }
-            //close the file
-            sr.Close();
+                //close the file
+                sr.Close();
         }
 
         private void btnPushBase_Click(object sender, EventArgs e)

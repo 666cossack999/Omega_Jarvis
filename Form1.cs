@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -9,18 +10,12 @@ namespace Omega_Jarvis
 
         private Action<string> _pushToLogValueDelegate;
         private Action _activatePcFlagsDelegate;
-        private Action _deactivatePcFlagsDelegate;
         private Action _activateLoginFlagsDelegate;
-        private Action _deactivateLoginFlagsDelegate;
 
 
         public Form1()
         {
             InitializeComponent();
-
-            //txtPC.Text = "m-stis20";
-            //txtLogin.Text = "dmitriev_ei";
-
         }
 
         public void btnBase1C_Click(object sender, EventArgs e)
@@ -28,8 +23,22 @@ namespace Omega_Jarvis
 
             if (rb1CToPC.Checked)
             {
-                Base1CFormPC base1CForm = new Base1CFormPC();
-                base1CForm.Show();
+                try
+                {
+                    Base1CFormPC base1CForm = new Base1CFormPC();
+                    base1CForm.Show();
+                }
+                catch (Exception ex)
+                {
+                            MessageBox.Show(
+                            ex.Message.ToString(),
+                            "Сообщение",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information,
+                            MessageBoxDefaultButton.Button1,
+                            MessageBoxOptions.DefaultDesktopOnly);
+                }
+                
             }
             else if (rb1CToServer.Checked)
             {
@@ -63,11 +72,6 @@ namespace Omega_Jarvis
                 PushToLog("готово");
                 lblProgress.Visible = false;
 
-                if (_pushToLogValueDelegate == null)
-                {
-                    _pushToLogValueDelegate += PushToLog;
-                }
-
                 Base1CFormServer base1CForm = new Base1CFormServer(_pushToLogValueDelegate);
                 base1CForm.Show();
             }
@@ -82,26 +86,6 @@ namespace Omega_Jarvis
                     MessageBoxOptions.DefaultDesktopOnly);
             }
 
-        }
-
-        private void txtPC_TextChanged(object sender, EventArgs e)
-        {
-            if (txtPC.Text != "")
-            {
-                _activatePcFlagsDelegate = PcFlagsActivate;
-                _deactivatePcFlagsDelegate = PcFlagsDeactivate;
-                Engine.PcTestConnectionAsync(txtPC.Text, _activatePcFlagsDelegate, _deactivatePcFlagsDelegate);
-            }
-        }
-
-        private void txtLogin_TextChanged(object sender, EventArgs e)
-        {
-            if (txtLogin.Text != "")
-            {
-                _activateLoginFlagsDelegate = LoginFlagsActivate;
-                _deactivateLoginFlagsDelegate = LoginFlagsDeactivate;
-                Engine.CheckUserInAdAsync(txtLogin.Text, _activateLoginFlagsDelegate, _deactivateLoginFlagsDelegate);
-            }
         }
 
         /// <summary>
@@ -125,7 +109,7 @@ namespace Omega_Jarvis
             rb1CToPC.Checked = false;
             //Дективируем контролы для принтеров
             btnPrinters.Enabled = false;
-            rbPrintersToPc.Enabled = false;
+            rbPrintersAdd.Enabled = false;
         }
 
         /// <summary>
@@ -139,8 +123,11 @@ namespace Omega_Jarvis
             rb1CToPC.Checked = true;
             btnBase1C.Enabled = true;
             //активируем контролы для принтеров
-            rbPrintersToPc.Enabled = true;
-            rbPrintersToPc.Checked = true;
+            rbPrintersAdd.Enabled = true;
+            rbPrintersAdd.Checked = true;
+            rbPrintersChangeIp.Enabled = true;
+            rbPrintersChangeName.Enabled = true;
+            rbPrintersRemove.Enabled = true;
             btnPrinters.Enabled = true;
         }
 
@@ -154,12 +141,7 @@ namespace Omega_Jarvis
             btnBase1C.Enabled = false;
             rb1CToServer.Enabled = false;
             rb1CToServer.Checked = false;
-            //деактивируем контролы для принтеров
-            btnPrinters.Enabled = false;
-            rbPrintersToMwmts.Enabled = false;
-            rbPrintersToRdp.Enabled = false;
-            rbPrintersToTs01.Enabled = false;
-            rbPrintersToTs01.Checked = false;
+            
         }
 
         /// <summary>
@@ -173,11 +155,57 @@ namespace Omega_Jarvis
             rb1CToServer.Checked = true;
             btnBase1C.Enabled = true;
             //Активируем контролы для принтеров
-            rbPrintersToMwmts.Enabled = true;
-            rbPrintersToRdp.Enabled = true;
-            rbPrintersToTs01.Enabled = true;
-            rbPrintersToTs01.Checked = true;
+            rbPrintersRemove.Enabled = true;
+            rbPrintersChangeName.Enabled = true;
+            rbPrintersChangeIp.Enabled = true;
+            rbPrintersChangeIp.Checked = true;
             btnPrinters.Enabled = true;
+        }
+
+        /// <summary>
+        /// Проверяем логин и имя пк в AD
+        /// </summary>
+        private void btnCheckLoginPc_Click(object sender, EventArgs e)
+        {
+            if (txtLogin.Text != "")
+            {
+                _activateLoginFlagsDelegate = LoginFlagsActivate;
+                Engine.CheckUserInAdAsync(txtLogin.Text, _activateLoginFlagsDelegate);
+            }
+            if (txtPC.Text != "")
+            {
+                _activatePcFlagsDelegate = PcFlagsActivate;
+                Engine.PcTestConnectionAsync(txtPC.Text, _activatePcFlagsDelegate);
+            }
+        }
+
+        private void txtPC_TextChanged(object sender, EventArgs e)
+        {
+            PcFlagsDeactivate();
+        }
+
+        private void txtLogin_TextChanged(object sender, EventArgs e)
+        {
+            LoginFlagsDeactivate();
+        }
+
+        private void btnPrinters_Click(object sender, EventArgs e)
+        {
+            if (rbPrintersAdd.Checked)
+            {
+                PrintersAdd printersAdd = new PrintersAdd(_pushToLogValueDelegate);
+                printersAdd.Show();
+            }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            _pushToLogValueDelegate = PushToLog;
+            Data.PrinterDrivers = Engine.CheckPrinterDrivers("srv-rdsh-c1-01");
+
+
+            txtPC.Text = "m-stis20";
+            txtLogin.Text = "dmitriev_ei";
         }
     }
 }
