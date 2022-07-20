@@ -32,15 +32,21 @@
             this.txtLogin = new System.Windows.Forms.TextBox();
             this.labelPC = new System.Windows.Forms.Label();
             this.labelLogin = new System.Windows.Forms.Label();
-            this.eventBox = new System.Windows.Forms.GroupBox();
+            this.gbAllButtons = new System.Windows.Forms.GroupBox();
+            this.gbPrinters = new System.Windows.Forms.GroupBox();
+            this.rbPrintersToRdp = new System.Windows.Forms.RadioButton();
+            this.rbPrintersToMwmts = new System.Windows.Forms.RadioButton();
+            this.rbPrintersToTs01 = new System.Windows.Forms.RadioButton();
+            this.rbPrintersToPc = new System.Windows.Forms.RadioButton();
+            this.btnPrinters = new System.Windows.Forms.Button();
             this.lblProgress = new System.Windows.Forms.Label();
-            this.progress = new System.Windows.Forms.ProgressBar();
             this.gbBase1C = new System.Windows.Forms.GroupBox();
             this.btnBase1C = new System.Windows.Forms.Button();
-            this.rbToServer = new System.Windows.Forms.RadioButton();
-            this.rbToPC = new System.Windows.Forms.RadioButton();
+            this.rb1CToServer = new System.Windows.Forms.RadioButton();
+            this.rb1CToPC = new System.Windows.Forms.RadioButton();
             this.tbLog = new System.Windows.Forms.TextBox();
-            this.eventBox.SuspendLayout();
+            this.gbAllButtons.SuspendLayout();
+            this.gbPrinters.SuspendLayout();
             this.gbBase1C.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,15 +54,15 @@
             // 
             this.txtPC.Location = new System.Drawing.Point(12, 29);
             this.txtPC.Name = "txtPC";
-            this.txtPC.Size = new System.Drawing.Size(187, 20);
+            this.txtPC.Size = new System.Drawing.Size(178, 20);
             this.txtPC.TabIndex = 0;
             this.txtPC.TextChanged += new System.EventHandler(this.txtPC_TextChanged);
             // 
             // txtLogin
             // 
-            this.txtLogin.Location = new System.Drawing.Point(205, 29);
+            this.txtLogin.Location = new System.Drawing.Point(199, 29);
             this.txtLogin.Name = "txtLogin";
-            this.txtLogin.Size = new System.Drawing.Size(174, 20);
+            this.txtLogin.Size = new System.Drawing.Size(180, 20);
             this.txtLogin.TabIndex = 0;
             this.txtLogin.TextChanged += new System.EventHandler(this.txtLogin_TextChanged);
             // 
@@ -72,22 +78,90 @@
             // labelLogin
             // 
             this.labelLogin.AutoSize = true;
-            this.labelLogin.Location = new System.Drawing.Point(202, 9);
+            this.labelLogin.Location = new System.Drawing.Point(201, 9);
             this.labelLogin.Name = "labelLogin";
             this.labelLogin.Size = new System.Drawing.Size(38, 13);
             this.labelLogin.TabIndex = 1;
             this.labelLogin.Text = "Логин";
             // 
-            // eventBox
+            // gbAllButtons
             // 
-            this.eventBox.Controls.Add(this.lblProgress);
-            this.eventBox.Controls.Add(this.progress);
-            this.eventBox.Controls.Add(this.gbBase1C);
-            this.eventBox.Location = new System.Drawing.Point(12, 55);
-            this.eventBox.Name = "eventBox";
-            this.eventBox.Size = new System.Drawing.Size(367, 383);
-            this.eventBox.TabIndex = 2;
-            this.eventBox.TabStop = false;
+            this.gbAllButtons.Controls.Add(this.gbPrinters);
+            this.gbAllButtons.Controls.Add(this.lblProgress);
+            this.gbAllButtons.Controls.Add(this.gbBase1C);
+            this.gbAllButtons.Location = new System.Drawing.Point(12, 55);
+            this.gbAllButtons.Name = "gbAllButtons";
+            this.gbAllButtons.Size = new System.Drawing.Size(367, 383);
+            this.gbAllButtons.TabIndex = 2;
+            this.gbAllButtons.TabStop = false;
+            // 
+            // gbPrinters
+            // 
+            this.gbPrinters.Controls.Add(this.rbPrintersToRdp);
+            this.gbPrinters.Controls.Add(this.rbPrintersToMwmts);
+            this.gbPrinters.Controls.Add(this.rbPrintersToTs01);
+            this.gbPrinters.Controls.Add(this.rbPrintersToPc);
+            this.gbPrinters.Controls.Add(this.btnPrinters);
+            this.gbPrinters.Location = new System.Drawing.Point(6, 85);
+            this.gbPrinters.Name = "gbPrinters";
+            this.gbPrinters.Size = new System.Drawing.Size(355, 69);
+            this.gbPrinters.TabIndex = 8;
+            this.gbPrinters.TabStop = false;
+            this.gbPrinters.Text = "Принтеры";
+            // 
+            // rbPrintersToRdp
+            // 
+            this.rbPrintersToRdp.AutoSize = true;
+            this.rbPrintersToRdp.Enabled = false;
+            this.rbPrintersToRdp.Location = new System.Drawing.Point(290, 42);
+            this.rbPrintersToRdp.Name = "rbPrintersToRdp";
+            this.rbPrintersToRdp.Size = new System.Drawing.Size(48, 17);
+            this.rbPrintersToRdp.TabIndex = 1;
+            this.rbPrintersToRdp.Text = "RDP";
+            this.rbPrintersToRdp.UseVisualStyleBackColor = true;
+            // 
+            // rbPrintersToMwmts
+            // 
+            this.rbPrintersToMwmts.AutoSize = true;
+            this.rbPrintersToMwmts.Enabled = false;
+            this.rbPrintersToMwmts.Location = new System.Drawing.Point(227, 42);
+            this.rbPrintersToMwmts.Name = "rbPrintersToMwmts";
+            this.rbPrintersToMwmts.Size = new System.Drawing.Size(60, 17);
+            this.rbPrintersToMwmts.TabIndex = 1;
+            this.rbPrintersToMwmts.Text = "m-wmts";
+            this.rbPrintersToMwmts.UseVisualStyleBackColor = true;
+            // 
+            // rbPrintersToTs01
+            // 
+            this.rbPrintersToTs01.AutoSize = true;
+            this.rbPrintersToTs01.Enabled = false;
+            this.rbPrintersToTs01.Location = new System.Drawing.Point(290, 19);
+            this.rbPrintersToTs01.Name = "rbPrintersToTs01";
+            this.rbPrintersToTs01.Size = new System.Drawing.Size(51, 17);
+            this.rbPrintersToTs01.TabIndex = 1;
+            this.rbPrintersToTs01.Text = "TS01";
+            this.rbPrintersToTs01.UseVisualStyleBackColor = true;
+            // 
+            // rbPrintersToPc
+            // 
+            this.rbPrintersToPc.AutoSize = true;
+            this.rbPrintersToPc.Enabled = false;
+            this.rbPrintersToPc.Location = new System.Drawing.Point(227, 19);
+            this.rbPrintersToPc.Name = "rbPrintersToPc";
+            this.rbPrintersToPc.Size = new System.Drawing.Size(57, 17);
+            this.rbPrintersToPc.TabIndex = 1;
+            this.rbPrintersToPc.Text = "На ПК";
+            this.rbPrintersToPc.UseVisualStyleBackColor = true;
+            // 
+            // btnPrinters
+            // 
+            this.btnPrinters.Enabled = false;
+            this.btnPrinters.Location = new System.Drawing.Point(6, 19);
+            this.btnPrinters.Name = "btnPrinters";
+            this.btnPrinters.Size = new System.Drawing.Size(215, 40);
+            this.btnPrinters.TabIndex = 0;
+            this.btnPrinters.Text = "Принтеры";
+            this.btnPrinters.UseVisualStyleBackColor = true;
             // 
             // lblProgress
             // 
@@ -97,20 +171,11 @@
             this.lblProgress.Size = new System.Drawing.Size(0, 13);
             this.lblProgress.TabIndex = 6;
             // 
-            // progress
-            // 
-            this.progress.Location = new System.Drawing.Point(0, 360);
-            this.progress.Name = "progress";
-            this.progress.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.progress.Size = new System.Drawing.Size(367, 23);
-            this.progress.TabIndex = 5;
-            this.progress.Visible = false;
-            // 
             // gbBase1C
             // 
             this.gbBase1C.Controls.Add(this.btnBase1C);
-            this.gbBase1C.Controls.Add(this.rbToServer);
-            this.gbBase1C.Controls.Add(this.rbToPC);
+            this.gbBase1C.Controls.Add(this.rb1CToServer);
+            this.gbBase1C.Controls.Add(this.rb1CToPC);
             this.gbBase1C.Location = new System.Drawing.Point(6, 10);
             this.gbBase1C.Name = "gbBase1C";
             this.gbBase1C.Size = new System.Drawing.Size(355, 69);
@@ -120,6 +185,7 @@
             // 
             // btnBase1C
             // 
+            this.btnBase1C.Enabled = false;
             this.btnBase1C.Location = new System.Drawing.Point(6, 19);
             this.btnBase1C.Name = "btnBase1C";
             this.btnBase1C.Size = new System.Drawing.Size(215, 40);
@@ -128,27 +194,27 @@
             this.btnBase1C.UseVisualStyleBackColor = true;
             this.btnBase1C.Click += new System.EventHandler(this.btnBase1C_Click);
             // 
-            // rbToServer
+            // rb1CToServer
             // 
-            this.rbToServer.AutoSize = true;
-            this.rbToServer.Checked = true;
-            this.rbToServer.Location = new System.Drawing.Point(223, 42);
-            this.rbToServer.Name = "rbToServer";
-            this.rbToServer.Size = new System.Drawing.Size(112, 17);
-            this.rbToServer.TabIndex = 4;
-            this.rbToServer.TabStop = true;
-            this.rbToServer.Text = "На диск Сервера";
-            this.rbToServer.UseVisualStyleBackColor = true;
+            this.rb1CToServer.AutoSize = true;
+            this.rb1CToServer.Enabled = false;
+            this.rb1CToServer.Location = new System.Drawing.Point(227, 42);
+            this.rb1CToServer.Name = "rb1CToServer";
+            this.rb1CToServer.Size = new System.Drawing.Size(79, 17);
+            this.rb1CToServer.TabIndex = 4;
+            this.rb1CToServer.Text = "На Сервер";
+            this.rb1CToServer.UseVisualStyleBackColor = true;
             // 
-            // rbToPC
+            // rb1CToPC
             // 
-            this.rbToPC.AutoSize = true;
-            this.rbToPC.Location = new System.Drawing.Point(223, 19);
-            this.rbToPC.Name = "rbToPC";
-            this.rbToPC.Size = new System.Drawing.Size(57, 17);
-            this.rbToPC.TabIndex = 4;
-            this.rbToPC.Text = "На ПК";
-            this.rbToPC.UseVisualStyleBackColor = true;
+            this.rb1CToPC.AutoSize = true;
+            this.rb1CToPC.Enabled = false;
+            this.rb1CToPC.Location = new System.Drawing.Point(227, 19);
+            this.rb1CToPC.Name = "rb1CToPC";
+            this.rb1CToPC.Size = new System.Drawing.Size(57, 17);
+            this.rb1CToPC.TabIndex = 4;
+            this.rb1CToPC.Text = "На ПК";
+            this.rb1CToPC.UseVisualStyleBackColor = true;
             // 
             // tbLog
             // 
@@ -163,9 +229,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(384, 533);
+            this.ClientSize = new System.Drawing.Size(390, 533);
             this.Controls.Add(this.tbLog);
-            this.Controls.Add(this.eventBox);
+            this.Controls.Add(this.gbAllButtons);
             this.Controls.Add(this.labelLogin);
             this.Controls.Add(this.labelPC);
             this.Controls.Add(this.txtLogin);
@@ -173,8 +239,10 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Form1";
             this.Text = "Omega_Jarvis";
-            this.eventBox.ResumeLayout(false);
-            this.eventBox.PerformLayout();
+            this.gbAllButtons.ResumeLayout(false);
+            this.gbAllButtons.PerformLayout();
+            this.gbPrinters.ResumeLayout(false);
+            this.gbPrinters.PerformLayout();
             this.gbBase1C.ResumeLayout(false);
             this.gbBase1C.PerformLayout();
             this.ResumeLayout(false);
@@ -188,14 +256,19 @@
         private System.Windows.Forms.TextBox txtLogin;
         private System.Windows.Forms.Label labelPC;
         private System.Windows.Forms.Label labelLogin;
-        private System.Windows.Forms.GroupBox eventBox;
+        private System.Windows.Forms.GroupBox gbAllButtons;
         private System.Windows.Forms.Button btnBase1C;
-        private System.Windows.Forms.RadioButton rbToServer;
-        private System.Windows.Forms.RadioButton rbToPC;
+        private System.Windows.Forms.RadioButton rb1CToServer;
+        private System.Windows.Forms.RadioButton rb1CToPC;
         private System.Windows.Forms.GroupBox gbBase1C;
         private System.Windows.Forms.Label lblProgress;
-        private System.Windows.Forms.ProgressBar progress;
         private System.Windows.Forms.TextBox tbLog;
+        private System.Windows.Forms.GroupBox gbPrinters;
+        private System.Windows.Forms.RadioButton rbPrintersToPc;
+        private System.Windows.Forms.Button btnPrinters;
+        private System.Windows.Forms.RadioButton rbPrintersToRdp;
+        private System.Windows.Forms.RadioButton rbPrintersToMwmts;
+        private System.Windows.Forms.RadioButton rbPrintersToTs01;
     }
 }
 

@@ -5,11 +5,95 @@ using System.Linq;
 using System.Management.Automation;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Omega_Jarvis
 {
     public static class Engine
     {
+        /// <summary>
+        /// Проверяет, есть ли пользователь в AD
+        /// </summary>
+        /// <param name="login">Логин пользователя</param>
+        /// <returns>bool</returns>
+        private static bool CheckUserInAd(string login)
+        {
+            try
+            {
+                var psCheckLogin = PowerShell.Create()
+                                     .AddCommand("Get-AdUser")
+                                     .AddParameter("Identity", login)
+                                     .Invoke();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            
+        }
+        /// <summary>
+        /// Проверяет, есть ли пользователь в AD асинхронно
+        /// </summary>
+        /// <param name="login">Логин пользователя</param>
+        /// <returns>bool</returns>
+        public async static void CheckUserInAdAsync(string login, Action activateLoginFlagsDelegate, Action deactivateLoginFlagsDelegate)
+        {
+            bool checkLogin = await Task.Run(() => CheckUserInAd(login));
+
+            if (checkLogin)
+            {
+                activateLoginFlagsDelegate();
+                Data.Login = login;
+            }
+            else
+            {
+                deactivateLoginFlagsDelegate();
+            }
+        }
+
+        /// <summary>
+        /// Проверяет ПК в сети
+        /// </summary>
+        /// <param name="pcName">Имя ПК</param>
+        /// <returns>bool</returns>
+        private static bool PcTestConnection(string pcName)
+        {
+            var psCheckPc = PowerShell.Create()
+                                          .AddCommand("Test-Connection")
+                                          .AddParameter("ComputerName", pcName)
+                                          .AddParameter("Count", 1)
+                                          .Invoke();
+            if (psCheckPc.Count != 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Проверяет ПК в сети ассинхронно
+        /// </summary>
+        /// <param name="pcName">Имя ПК</param>
+        /// <returns>bool</returns>
+        public async static void PcTestConnectionAsync(string pcName, Action activatePcFlagDelegate, Action deactivatePcFlagDelegate)
+        {
+            bool checkPc = await Task.Run(() => PcTestConnection(pcName));
+
+            if (checkPc)
+            {
+                activatePcFlagDelegate();
+                Data.PcName = pcName;
+            }
+            else
+            {
+                deactivatePcFlagDelegate();
+            }
+        }
+
         /// <summary>
         /// Ищет на какой ноде TS01 или RDP в данный момент работает пользователь
         /// </summary>
@@ -51,17 +135,14 @@ namespace Omega_Jarvis
         /// <returns>SID пользователя</returns>
         public static string GetUserSid()
         {
-            
-            //Получаем ИД диска
             var psGetSid = PowerShell.Create()
                                      .AddCommand("Get-AdUser")
                                      .AddParameter("Identity", Data.Login)
                                      .Invoke();
 
-            string sid = psGetSid[0].Properties["SID"].Value.ToString();
-
-            return sid;
-
+                string sid = psGetSid[0].Properties["SID"].Value.ToString();
+                return sid;
+            
         }
         
         /// <summary>
@@ -92,11 +173,11 @@ namespace Omega_Jarvis
                                             .AddParameter("ImagePath", Data.ServerImagePath)
                                             .Invoke();
         }
+
         /// <summary>
         /// Ищет путь конфига 1С на примонтированном диске на вашем ПК
         /// </summary>
         /// <returns>Путь до конфига</returns>
-       
         public static string GetPathOnServer()
         {
             //Узнаём буквы всех дисков
