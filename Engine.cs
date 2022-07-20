@@ -289,11 +289,28 @@ namespace Omega_Jarvis
         /// <param name="computerName">Имя компьютера</param>
         private static void RemovePrinter(string printerName, string computerName)
         {
+            //Вычисляем старый IP
+            var getOldIpPrinter = PowerShell.Create()
+                                            .AddCommand("Get-Printer")
+                                            .AddParameter("ComputerName", computerName)
+                                            .AddParameter("Name", printerName)
+                                            .Invoke();
+
+            string oldIp = getOldIpPrinter[0].Properties["PortName"].Value.ToString();
+
+            //Удаляем принтер
             var removePrinter = PowerShell.Create()
                                           .AddCommand("Remove-Printer")
                                           .AddParameter("ComputerName", computerName)
                                           .AddParameter("Name", printerName)
                                           .Invoke();
+            //Удаляем старый порт
+            var removeOldIpPrinter = PowerShell.Create()
+                                               .AddCommand("Remove-PrinterPort")
+                                               .AddParameter("ComputerName", computerName)
+                                               .AddParameter("Name", oldIp)
+                                               .Invoke();
+
         }
 
         /// <summary>
@@ -303,11 +320,68 @@ namespace Omega_Jarvis
         /// <param name="computerName">Имя компьютера</param>
         public async static void RemovePrinterAsync(string printerName, string computerName, Action<string> pushToLogDelegate)
         {
-            pushToLogDelegate($"Запустил процесс добавления принтера {printerName} на {computerName}");
+            pushToLogDelegate($"Запустил процесс удаления принтера {printerName} на {computerName}");
 
             await Task.Run(() => RemovePrinter(printerName, computerName));
 
             pushToLogDelegate($"Принтер {printerName} удалён с: {computerName}");
+            pushToLogDelegate($"Порт принтера удалён");
+        }
+
+        /// <summary>
+        /// Меняет IP-адрес у принтера и удаляет старый
+        /// </summary>
+        /// <param name="printerName">Имя принтера</param>
+        /// <param name="computerName">Имя компьютера</param>
+        /// <param name="newIp">Новый IP</param>
+        private static void ChangeIpPrinter(string printerName, string computerName, string newIp)
+        {
+            //Вычисляем старый IP
+            var getOldIpPrinter = PowerShell.Create()
+                                            .AddCommand("Get-Printer")
+                                            .AddParameter("ComputerName", computerName)
+                                            .AddParameter("Name", printerName)
+                                            .Invoke();
+
+            string oldIp = getOldIpPrinter[0].Properties["PortName"].Value.ToString();
+
+            //Добавляем новый порт
+            var addNewPort = PowerShell.Create()
+                                       .AddCommand("Add-PrinterPort")
+                                       .AddParameter("Name", newIp)
+                                       .AddParameter("PrinterHostAddress", newIp)
+                                       .Invoke();
+
+            //Ставим принтеру новый порт
+            var changeIpPrinter = PowerShell.Create()
+                                            .AddCommand("Set-Printer")
+                                            .AddParameter("ComputerName", computerName)
+                                            .AddParameter("PortName", newIp)
+                                            .AddParameter("Name", printerName)
+                                            .Invoke();
+
+            //Удаляем старый порт
+            var removeOldIpPrinter = PowerShell.Create()
+                                               .AddCommand("Remove-PrinterPort")
+                                               .AddParameter("ComputerName", computerName)
+                                               .AddParameter("Name", oldIp)
+                                               .Invoke();
+        }
+
+        /// <summary>
+        /// Меняет IP-адрес у принтера и удаляет старый асинхронно
+        /// </summary>
+        /// <param name="printerName">Имя принтера</param>
+        /// <param name="computerName">Имя компьютера</param>
+        /// <param name="newIp">Новый IP</param>
+        public async static void  ChangeIpPrinterAsync(string printerName, string computerName, string newIp, Action<string> pushToLogDelegate)
+        {
+            pushToLogDelegate($"Запустил процесс смены IP принтера {printerName} на {computerName}");
+
+            await Task.Run(() => ChangeIpPrinter(printerName, computerName, newIp));
+
+            pushToLogDelegate($"У принтера {printerName} изменён ip на: {newIp} на машине: {computerName}");
+            pushToLogDelegate($"Старый порт принтера удалён");
         }
 
         /// <summary>

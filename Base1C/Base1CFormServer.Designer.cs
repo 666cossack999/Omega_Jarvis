@@ -28,8 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Base1CFormServer));
             this.cb1cDoSrv = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.cbZupRbSrv = new System.Windows.Forms.CheckBox();
+            this.cbBuhRbCopySrv = new System.Windows.Forms.CheckBox();
+            this.cbBuhTruckRbSrv = new System.Windows.Forms.CheckBox();
+            this.cbBuh20RbSrv = new System.Windows.Forms.CheckBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cbTimeTrackSrv = new System.Windows.Forms.CheckBox();
             this.cbKanbanSrv = new System.Windows.Forms.CheckBox();
@@ -38,14 +44,9 @@
             this.cb1cBuhCorpSrv = new System.Windows.Forms.CheckBox();
             this.cbUprSrv = new System.Windows.Forms.CheckBox();
             this.btnPushBaseSrv = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.cbBuh20RbSrv = new System.Windows.Forms.CheckBox();
-            this.cbBuhTruckRbSrv = new System.Windows.Forms.CheckBox();
-            this.cbBuhRbCopySrv = new System.Windows.Forms.CheckBox();
-            this.cbZupRbSrv = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // cb1cDoSrv
@@ -68,6 +69,59 @@
             this.groupBox1.Size = new System.Drawing.Size(557, 243);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.cbZupRbSrv);
+            this.groupBox3.Controls.Add(this.cbBuhRbCopySrv);
+            this.groupBox3.Controls.Add(this.cbBuhTruckRbSrv);
+            this.groupBox3.Controls.Add(this.cbBuh20RbSrv);
+            this.groupBox3.Location = new System.Drawing.Point(306, 10);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(245, 174);
+            this.groupBox3.TabIndex = 2;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "РБ";
+            // 
+            // cbZupRbSrv
+            // 
+            this.cbZupRbSrv.AutoSize = true;
+            this.cbZupRbSrv.Location = new System.Drawing.Point(6, 81);
+            this.cbZupRbSrv.Name = "cbZupRbSrv";
+            this.cbZupRbSrv.Size = new System.Drawing.Size(84, 17);
+            this.cbZupRbSrv.TabIndex = 5;
+            this.cbZupRbSrv.Text = "ЗУП 3.0 РБ";
+            this.cbZupRbSrv.UseVisualStyleBackColor = true;
+            // 
+            // cbBuhRbCopySrv
+            // 
+            this.cbBuhRbCopySrv.AutoSize = true;
+            this.cbBuhRbCopySrv.Location = new System.Drawing.Point(6, 58);
+            this.cbBuhRbCopySrv.Name = "cbBuhRbCopySrv";
+            this.cbBuhRbCopySrv.Size = new System.Drawing.Size(118, 17);
+            this.cbBuhRbCopySrv.TabIndex = 4;
+            this.cbBuhRbCopySrv.Text = "БП РБ 2.1 КОПИЯ";
+            this.cbBuhRbCopySrv.UseVisualStyleBackColor = true;
+            // 
+            // cbBuhTruckRbSrv
+            // 
+            this.cbBuhTruckRbSrv.AutoSize = true;
+            this.cbBuhTruckRbSrv.Location = new System.Drawing.Point(6, 35);
+            this.cbBuhTruckRbSrv.Name = "cbBuhTruckRbSrv";
+            this.cbBuhTruckRbSrv.Size = new System.Drawing.Size(222, 17);
+            this.cbBuhTruckRbSrv.TabIndex = 3;
+            this.cbBuhTruckRbSrv.Text = "Бухгалтерия Омега Трак (Белоруссия)";
+            this.cbBuhTruckRbSrv.UseVisualStyleBackColor = true;
+            // 
+            // cbBuh20RbSrv
+            // 
+            this.cbBuh20RbSrv.AutoSize = true;
+            this.cbBuh20RbSrv.Location = new System.Drawing.Point(6, 12);
+            this.cbBuh20RbSrv.Name = "cbBuh20RbSrv";
+            this.cbBuh20RbSrv.Size = new System.Drawing.Size(237, 17);
+            this.cbBuh20RbSrv.TabIndex = 2;
+            this.cbBuh20RbSrv.Text = "Бухгалтерия 20 Омега Трак (Белоруссия)";
+            this.cbBuh20RbSrv.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
@@ -155,73 +209,21 @@
             this.btnPushBaseSrv.UseVisualStyleBackColor = true;
             this.btnPushBaseSrv.Click += new System.EventHandler(this.btnPushBaseSrv_Click);
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.cbZupRbSrv);
-            this.groupBox3.Controls.Add(this.cbBuhRbCopySrv);
-            this.groupBox3.Controls.Add(this.cbBuhTruckRbSrv);
-            this.groupBox3.Controls.Add(this.cbBuh20RbSrv);
-            this.groupBox3.Location = new System.Drawing.Point(306, 10);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(245, 174);
-            this.groupBox3.TabIndex = 2;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "РБ";
-            // 
-            // cbBuh20RbSrv
-            // 
-            this.cbBuh20RbSrv.AutoSize = true;
-            this.cbBuh20RbSrv.Location = new System.Drawing.Point(6, 12);
-            this.cbBuh20RbSrv.Name = "cbBuh20RbSrv";
-            this.cbBuh20RbSrv.Size = new System.Drawing.Size(237, 17);
-            this.cbBuh20RbSrv.TabIndex = 2;
-            this.cbBuh20RbSrv.Text = "Бухгалтерия 20 Омега Трак (Белоруссия)";
-            this.cbBuh20RbSrv.UseVisualStyleBackColor = true;
-            // 
-            // cbBuhTruckRbSrv
-            // 
-            this.cbBuhTruckRbSrv.AutoSize = true;
-            this.cbBuhTruckRbSrv.Location = new System.Drawing.Point(6, 35);
-            this.cbBuhTruckRbSrv.Name = "cbBuhTruckRbSrv";
-            this.cbBuhTruckRbSrv.Size = new System.Drawing.Size(222, 17);
-            this.cbBuhTruckRbSrv.TabIndex = 3;
-            this.cbBuhTruckRbSrv.Text = "Бухгалтерия Омега Трак (Белоруссия)";
-            this.cbBuhTruckRbSrv.UseVisualStyleBackColor = true;
-            // 
-            // cbBuhRbCopySrv
-            // 
-            this.cbBuhRbCopySrv.AutoSize = true;
-            this.cbBuhRbCopySrv.Location = new System.Drawing.Point(6, 58);
-            this.cbBuhRbCopySrv.Name = "cbBuhRbCopySrv";
-            this.cbBuhRbCopySrv.Size = new System.Drawing.Size(118, 17);
-            this.cbBuhRbCopySrv.TabIndex = 4;
-            this.cbBuhRbCopySrv.Text = "БП РБ 2.1 КОПИЯ";
-            this.cbBuhRbCopySrv.UseVisualStyleBackColor = true;
-            // 
-            // cbZupRbSrv
-            // 
-            this.cbZupRbSrv.AutoSize = true;
-            this.cbZupRbSrv.Location = new System.Drawing.Point(6, 81);
-            this.cbZupRbSrv.Name = "cbZupRbSrv";
-            this.cbZupRbSrv.Size = new System.Drawing.Size(84, 17);
-            this.cbZupRbSrv.TabIndex = 5;
-            this.cbZupRbSrv.Text = "ЗУП 3.0 РБ";
-            this.cbZupRbSrv.UseVisualStyleBackColor = true;
-            // 
             // Base1CFormServer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(578, 257);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Base1CFormServer";
             this.Text = "Базы 1С на сервере";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Base1CFormServer_FormClosing);
             this.groupBox1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }

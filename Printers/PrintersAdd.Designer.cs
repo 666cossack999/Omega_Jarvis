@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrintersAdd));
             this.txtPrinterIp = new System.Windows.Forms.TextBox();
             this.lbPrinterIp = new System.Windows.Forms.Label();
             this.txtPrinterName = new System.Windows.Forms.TextBox();
@@ -41,6 +42,7 @@
             this.cbPrinterToRdp = new System.Windows.Forms.CheckBox();
             this.cbPrinterToTs01 = new System.Windows.Forms.CheckBox();
             this.cbPrinterToPc = new System.Windows.Forms.CheckBox();
+            this.lbSupport = new System.Windows.Forms.Label();
             this.gbPrintersAdd.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -173,17 +175,29 @@
             this.cbPrinterToPc.Text = "На ПК";
             this.cbPrinterToPc.UseVisualStyleBackColor = true;
             // 
+            // lbSupport
+            // 
+            this.lbSupport.AutoSize = true;
+            this.lbSupport.Location = new System.Drawing.Point(143, 3);
+            this.lbSupport.Name = "lbSupport";
+            this.lbSupport.Size = new System.Drawing.Size(264, 13);
+            this.lbSupport.TabIndex = 3;
+            this.lbSupport.Text = "Драйвер должен быть предустановлен на машине";
+            // 
             // PrintersAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(558, 122);
+            this.Controls.Add(this.lbSupport);
             this.Controls.Add(this.gbPrintersAdd);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PrintersAdd";
             this.Text = "Добавить принтер";
             this.gbPrintersAdd.ResumeLayout(false);
             this.gbPrintersAdd.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -202,5 +216,6 @@
         private System.Windows.Forms.CheckBox cbPrinterToPc;
         private System.Windows.Forms.Button btnPrinterAdd;
         private System.Windows.Forms.ComboBox cboxDrivers;
+        private System.Windows.Forms.Label lbSupport;
     }
 }

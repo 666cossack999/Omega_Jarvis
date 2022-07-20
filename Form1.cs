@@ -193,6 +193,12 @@ namespace Omega_Jarvis
                 PrintersRemove printersRemove = new PrintersRemove(_pushToLogValueDelegate, _pcChecked);
                 printersRemove.Show();
             }
+            //меняем ip-адрес
+            if (rbPrintersChangeIp.Checked)
+            {
+                PrintersChangeIp printersChangeIp = new PrintersChangeIp(_pushToLogValueDelegate, _pcChecked);
+                printersChangeIp.Show();
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)

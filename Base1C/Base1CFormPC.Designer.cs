@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Base1CFormPC));
             this.btnPushBase = new System.Windows.Forms.Button();
             this.cb1cDoPc = new System.Windows.Forms.CheckBox();
             this.cb1cBuhCorpPc = new System.Windows.Forms.CheckBox();
@@ -35,17 +36,17 @@
             this.cbZupPc = new System.Windows.Forms.CheckBox();
             this.cbUprPc = new System.Windows.Forms.CheckBox();
             this.gb1cPcAll = new System.Windows.Forms.GroupBox();
-            this.gb1CPcRf = new System.Windows.Forms.GroupBox();
-            this.cbTimeTrackPc = new System.Windows.Forms.CheckBox();
-            this.cbKanbanPc = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbZupRbPc = new System.Windows.Forms.CheckBox();
             this.cbBuhRbCopyPc = new System.Windows.Forms.CheckBox();
             this.cbBuhTruckRbPc = new System.Windows.Forms.CheckBox();
             this.cbBuh20RbPc = new System.Windows.Forms.CheckBox();
+            this.gb1CPcRf = new System.Windows.Forms.GroupBox();
+            this.cbKanbanPc = new System.Windows.Forms.CheckBox();
+            this.cbTimeTrackPc = new System.Windows.Forms.CheckBox();
             this.gb1cPcAll.SuspendLayout();
-            this.gb1CPcRf.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.gb1CPcRf.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnPushBase
@@ -119,42 +120,6 @@
             this.gb1cPcAll.TabIndex = 3;
             this.gb1cPcAll.TabStop = false;
             // 
-            // gb1CPcRf
-            // 
-            this.gb1CPcRf.Controls.Add(this.cbKanbanPc);
-            this.gb1CPcRf.Controls.Add(this.cbTimeTrackPc);
-            this.gb1CPcRf.Controls.Add(this.cb1cDoPc);
-            this.gb1CPcRf.Controls.Add(this.cb1cBuhCorpPc);
-            this.gb1CPcRf.Controls.Add(this.cbUprPc);
-            this.gb1CPcRf.Controls.Add(this.cbUatPc);
-            this.gb1CPcRf.Controls.Add(this.cbZupPc);
-            this.gb1CPcRf.Location = new System.Drawing.Point(6, 19);
-            this.gb1CPcRf.Name = "gb1CPcRf";
-            this.gb1CPcRf.Size = new System.Drawing.Size(265, 177);
-            this.gb1CPcRf.TabIndex = 3;
-            this.gb1CPcRf.TabStop = false;
-            this.gb1CPcRf.Text = "РФ";
-            // 
-            // cbTimeTrackPc
-            // 
-            this.cbTimeTrackPc.AutoSize = true;
-            this.cbTimeTrackPc.Location = new System.Drawing.Point(6, 153);
-            this.cbTimeTrackPc.Name = "cbTimeTrackPc";
-            this.cbTimeTrackPc.Size = new System.Drawing.Size(146, 17);
-            this.cbTimeTrackPc.TabIndex = 3;
-            this.cbTimeTrackPc.Text = "Учёт рабочего времени";
-            this.cbTimeTrackPc.UseVisualStyleBackColor = true;
-            // 
-            // cbKanbanPc
-            // 
-            this.cbKanbanPc.AutoSize = true;
-            this.cbKanbanPc.Location = new System.Drawing.Point(6, 130);
-            this.cbKanbanPc.Name = "cbKanbanPc";
-            this.cbKanbanPc.Size = new System.Drawing.Size(169, 17);
-            this.cbKanbanPc.TabIndex = 4;
-            this.cbKanbanPc.Text = "База заявок (Канбан-доска)";
-            this.cbKanbanPc.UseVisualStyleBackColor = true;
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.cbZupRbPc);
@@ -208,19 +173,56 @@
             this.cbBuh20RbPc.Text = "Бухгалтерия 20 Омега Трак (Белоруссия)";
             this.cbBuh20RbPc.UseVisualStyleBackColor = true;
             // 
+            // gb1CPcRf
+            // 
+            this.gb1CPcRf.Controls.Add(this.cbKanbanPc);
+            this.gb1CPcRf.Controls.Add(this.cbTimeTrackPc);
+            this.gb1CPcRf.Controls.Add(this.cb1cDoPc);
+            this.gb1CPcRf.Controls.Add(this.cb1cBuhCorpPc);
+            this.gb1CPcRf.Controls.Add(this.cbUprPc);
+            this.gb1CPcRf.Controls.Add(this.cbUatPc);
+            this.gb1CPcRf.Controls.Add(this.cbZupPc);
+            this.gb1CPcRf.Location = new System.Drawing.Point(6, 19);
+            this.gb1CPcRf.Name = "gb1CPcRf";
+            this.gb1CPcRf.Size = new System.Drawing.Size(265, 177);
+            this.gb1CPcRf.TabIndex = 3;
+            this.gb1CPcRf.TabStop = false;
+            this.gb1CPcRf.Text = "РФ";
+            // 
+            // cbKanbanPc
+            // 
+            this.cbKanbanPc.AutoSize = true;
+            this.cbKanbanPc.Location = new System.Drawing.Point(6, 130);
+            this.cbKanbanPc.Name = "cbKanbanPc";
+            this.cbKanbanPc.Size = new System.Drawing.Size(169, 17);
+            this.cbKanbanPc.TabIndex = 4;
+            this.cbKanbanPc.Text = "База заявок (Канбан-доска)";
+            this.cbKanbanPc.UseVisualStyleBackColor = true;
+            // 
+            // cbTimeTrackPc
+            // 
+            this.cbTimeTrackPc.AutoSize = true;
+            this.cbTimeTrackPc.Location = new System.Drawing.Point(6, 153);
+            this.cbTimeTrackPc.Name = "cbTimeTrackPc";
+            this.cbTimeTrackPc.Size = new System.Drawing.Size(146, 17);
+            this.cbTimeTrackPc.TabIndex = 3;
+            this.cbTimeTrackPc.Text = "Учёт рабочего времени";
+            this.cbTimeTrackPc.UseVisualStyleBackColor = true;
+            // 
             // Base1CFormPC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(617, 267);
             this.Controls.Add(this.gb1cPcAll);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Base1CFormPC";
             this.Text = "Базы";
             this.gb1cPcAll.ResumeLayout(false);
-            this.gb1CPcRf.ResumeLayout(false);
-            this.gb1CPcRf.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.gb1CPcRf.ResumeLayout(false);
+            this.gb1CPcRf.PerformLayout();
             this.ResumeLayout(false);
 
         }
