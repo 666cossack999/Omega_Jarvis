@@ -24,7 +24,7 @@ namespace Omega_Jarvis.Printers
         {
             if (cbPc.Checked)
             {
-                Engine.ChangeNamePrinterAsync(Data.PcName, txtOldName.Text, txtNewName.Text, _pushToLogDelegate);
+               Engine.ChangeNamePrinterAsync(Data.PcName, txtOldName.Text, txtNewName.Text, _pushToLogDelegate);
             }
         }
     }

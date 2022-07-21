@@ -30,16 +30,16 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrinterChangeName));
             this.gbPrinterChangeName = new System.Windows.Forms.GroupBox();
-            this.txtOldName = new System.Windows.Forms.TextBox();
+            this.btnChangeName = new System.Windows.Forms.Button();
+            this.cbMwmts04 = new System.Windows.Forms.CheckBox();
+            this.cbMwmts02 = new System.Windows.Forms.CheckBox();
+            this.cbRDP = new System.Windows.Forms.CheckBox();
+            this.cbTs01 = new System.Windows.Forms.CheckBox();
+            this.cbPc = new System.Windows.Forms.CheckBox();
+            this.lbNewName = new System.Windows.Forms.Label();
             this.lbOldName = new System.Windows.Forms.Label();
             this.txtNewName = new System.Windows.Forms.TextBox();
-            this.lbNewName = new System.Windows.Forms.Label();
-            this.cbPc = new System.Windows.Forms.CheckBox();
-            this.cbTs01 = new System.Windows.Forms.CheckBox();
-            this.cbRDP = new System.Windows.Forms.CheckBox();
-            this.cbMwmts02 = new System.Windows.Forms.CheckBox();
-            this.cbMwmts04 = new System.Windows.Forms.CheckBox();
-            this.btnChangeName = new System.Windows.Forms.Button();
+            this.txtOldName = new System.Windows.Forms.TextBox();
             this.gbPrinterChangeName.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,12 +61,74 @@
             this.gbPrinterChangeName.TabIndex = 0;
             this.gbPrinterChangeName.TabStop = false;
             // 
-            // txtOldName
+            // btnChangeName
             // 
-            this.txtOldName.Location = new System.Drawing.Point(6, 30);
-            this.txtOldName.Name = "txtOldName";
-            this.txtOldName.Size = new System.Drawing.Size(133, 20);
-            this.txtOldName.TabIndex = 0;
+            this.btnChangeName.Location = new System.Drawing.Point(6, 56);
+            this.btnChangeName.Name = "btnChangeName";
+            this.btnChangeName.Size = new System.Drawing.Size(251, 63);
+            this.btnChangeName.TabIndex = 2;
+            this.btnChangeName.Text = "Сменить имя";
+            this.btnChangeName.UseVisualStyleBackColor = true;
+            this.btnChangeName.Click += new System.EventHandler(this.btnChangeName_Click);
+            // 
+            // cbMwmts04
+            // 
+            this.cbMwmts04.AutoSize = true;
+            this.cbMwmts04.Location = new System.Drawing.Point(271, 102);
+            this.cbMwmts04.Name = "cbMwmts04";
+            this.cbMwmts04.Size = new System.Drawing.Size(73, 17);
+            this.cbMwmts04.TabIndex = 2;
+            this.cbMwmts04.Text = "m-wmts04";
+            this.cbMwmts04.UseVisualStyleBackColor = true;
+            // 
+            // cbMwmts02
+            // 
+            this.cbMwmts02.AutoSize = true;
+            this.cbMwmts02.Location = new System.Drawing.Point(271, 79);
+            this.cbMwmts02.Name = "cbMwmts02";
+            this.cbMwmts02.Size = new System.Drawing.Size(73, 17);
+            this.cbMwmts02.TabIndex = 2;
+            this.cbMwmts02.Text = "m-wmts02";
+            this.cbMwmts02.UseVisualStyleBackColor = true;
+            // 
+            // cbRDP
+            // 
+            this.cbRDP.AutoSize = true;
+            this.cbRDP.Location = new System.Drawing.Point(271, 56);
+            this.cbRDP.Name = "cbRDP";
+            this.cbRDP.Size = new System.Drawing.Size(49, 17);
+            this.cbRDP.TabIndex = 2;
+            this.cbRDP.Text = "RDP";
+            this.cbRDP.UseVisualStyleBackColor = true;
+            // 
+            // cbTs01
+            // 
+            this.cbTs01.AutoSize = true;
+            this.cbTs01.Location = new System.Drawing.Point(271, 33);
+            this.cbTs01.Name = "cbTs01";
+            this.cbTs01.Size = new System.Drawing.Size(52, 17);
+            this.cbTs01.TabIndex = 2;
+            this.cbTs01.Text = "TS01";
+            this.cbTs01.UseVisualStyleBackColor = true;
+            // 
+            // cbPc
+            // 
+            this.cbPc.AutoSize = true;
+            this.cbPc.Location = new System.Drawing.Point(271, 10);
+            this.cbPc.Name = "cbPc";
+            this.cbPc.Size = new System.Drawing.Size(41, 17);
+            this.cbPc.TabIndex = 2;
+            this.cbPc.Text = "ПК";
+            this.cbPc.UseVisualStyleBackColor = true;
+            // 
+            // lbNewName
+            // 
+            this.lbNewName.AutoSize = true;
+            this.lbNewName.Location = new System.Drawing.Point(145, 14);
+            this.lbNewName.Name = "lbNewName";
+            this.lbNewName.Size = new System.Drawing.Size(112, 13);
+            this.lbNewName.TabIndex = 1;
+            this.lbNewName.Text = "Новое имя принтера";
             // 
             // lbOldName
             // 
@@ -82,76 +144,14 @@
             this.txtNewName.Location = new System.Drawing.Point(145, 30);
             this.txtNewName.Name = "txtNewName";
             this.txtNewName.Size = new System.Drawing.Size(112, 20);
-            this.txtNewName.TabIndex = 0;
+            this.txtNewName.TabIndex = 1;
             // 
-            // lbNewName
+            // txtOldName
             // 
-            this.lbNewName.AutoSize = true;
-            this.lbNewName.Location = new System.Drawing.Point(145, 14);
-            this.lbNewName.Name = "lbNewName";
-            this.lbNewName.Size = new System.Drawing.Size(112, 13);
-            this.lbNewName.TabIndex = 1;
-            this.lbNewName.Text = "Новое имя принтера";
-            // 
-            // cbPc
-            // 
-            this.cbPc.AutoSize = true;
-            this.cbPc.Location = new System.Drawing.Point(271, 10);
-            this.cbPc.Name = "cbPc";
-            this.cbPc.Size = new System.Drawing.Size(41, 17);
-            this.cbPc.TabIndex = 2;
-            this.cbPc.Text = "ПК";
-            this.cbPc.UseVisualStyleBackColor = true;
-            // 
-            // cbTs01
-            // 
-            this.cbTs01.AutoSize = true;
-            this.cbTs01.Location = new System.Drawing.Point(271, 33);
-            this.cbTs01.Name = "cbTs01";
-            this.cbTs01.Size = new System.Drawing.Size(52, 17);
-            this.cbTs01.TabIndex = 2;
-            this.cbTs01.Text = "TS01";
-            this.cbTs01.UseVisualStyleBackColor = true;
-            // 
-            // cbRDP
-            // 
-            this.cbRDP.AutoSize = true;
-            this.cbRDP.Location = new System.Drawing.Point(271, 56);
-            this.cbRDP.Name = "cbRDP";
-            this.cbRDP.Size = new System.Drawing.Size(49, 17);
-            this.cbRDP.TabIndex = 2;
-            this.cbRDP.Text = "RDP";
-            this.cbRDP.UseVisualStyleBackColor = true;
-            // 
-            // cbMwmts02
-            // 
-            this.cbMwmts02.AutoSize = true;
-            this.cbMwmts02.Location = new System.Drawing.Point(271, 79);
-            this.cbMwmts02.Name = "cbMwmts02";
-            this.cbMwmts02.Size = new System.Drawing.Size(73, 17);
-            this.cbMwmts02.TabIndex = 2;
-            this.cbMwmts02.Text = "m-wmts02";
-            this.cbMwmts02.UseVisualStyleBackColor = true;
-            // 
-            // cbMwmts04
-            // 
-            this.cbMwmts04.AutoSize = true;
-            this.cbMwmts04.Location = new System.Drawing.Point(271, 102);
-            this.cbMwmts04.Name = "cbMwmts04";
-            this.cbMwmts04.Size = new System.Drawing.Size(73, 17);
-            this.cbMwmts04.TabIndex = 2;
-            this.cbMwmts04.Text = "m-wmts04";
-            this.cbMwmts04.UseVisualStyleBackColor = true;
-            // 
-            // btnChangeName
-            // 
-            this.btnChangeName.Location = new System.Drawing.Point(6, 56);
-            this.btnChangeName.Name = "btnChangeName";
-            this.btnChangeName.Size = new System.Drawing.Size(251, 63);
-            this.btnChangeName.TabIndex = 1;
-            this.btnChangeName.Text = "Сменить имя";
-            this.btnChangeName.UseVisualStyleBackColor = true;
-            this.btnChangeName.Click += new System.EventHandler(this.btnChangeName_Click);
+            this.txtOldName.Location = new System.Drawing.Point(6, 30);
+            this.txtOldName.Name = "txtOldName";
+            this.txtOldName.Size = new System.Drawing.Size(133, 20);
+            this.txtOldName.TabIndex = 0;
             // 
             // PrinterChangeName
             // 

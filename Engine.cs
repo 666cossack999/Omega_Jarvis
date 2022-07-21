@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Management.Automation;
+using System.Management;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -390,14 +391,30 @@ namespace Omega_Jarvis
         /// <param name="computerName">Имя машины</param>
         /// <param name="oldName">Старое имя</param>
         /// <param name="newName">Новое имя</param>
-        private static void ChangeNamePrinter(string computerName, string oldName, string newName)
+        private static bool ChangeNamePrinter(string computerName, string oldName, string newName)
         {
-            var psRenamePrinter = PowerShell.Create()
+            try
+            {
+                var psRenamePrinter = PowerShell.Create()
                                             .AddCommand("Rename-Printer")
-                                            .AddParameter("ComputerName", computerName)
+                                            .AddParameter("CimSession", computerName)
                                             .AddParameter("Name", oldName)
                                             .AddParameter("NewName", newName)
                                             .Invoke();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                            ex.Message.ToString(),
+                            "Сообщение",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information,
+                            MessageBoxDefaultButton.Button1,
+                            MessageBoxOptions.DefaultDesktopOnly);
+                return false;
+            }
+            
         }
 
         /// <summary>
@@ -410,9 +427,17 @@ namespace Omega_Jarvis
         {
             pushToLogDelegate($"Меняю имя принтера {oldName} на {newName} на машине {computerName}");
 
-            await Task.Run(() => ChangeNamePrinter(computerName, oldName, newName));
+            bool falg = await Task.Run(() => ChangeNamePrinter(computerName, oldName, newName));
 
-            pushToLogDelegate($"У принтера {oldName} сменилось имя на: {newName} на машине: {computerName}");
+            if (falg)
+            {
+                pushToLogDelegate($"У принтера {oldName} сменилось имя на: {newName} на машине: {computerName}");
+            }
+            else
+            {
+                pushToLogDelegate($"На машине: {computerName} у принтера {oldName} Не удалось изменить имя...");
+            }
+            
         }
         /// <summary>
         /// Выгружает список установленых драйверов принтера на машине
