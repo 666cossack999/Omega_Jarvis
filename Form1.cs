@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
+using System.Net;
 using System.Windows.Forms;
 
 namespace Omega_Jarvis
@@ -13,11 +15,17 @@ namespace Omega_Jarvis
         private Action _activatePcFlagsDelegate;
         private Action _activateLoginFlagsDelegate;
         private bool _pcChecked = false;
+        private readonly string _version = "1.0";
 
 
         public Form1()
         {
             InitializeComponent();
+
+            ServicePointManager.Expect100Continue = true;
+            ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, sslPolicyErrors) => true;
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
+
         }
 
         public void btnBase1C_Click(object sender, EventArgs e)
@@ -215,6 +223,52 @@ namespace Omega_Jarvis
 
             txtPC.Text = "m-stis20";
             txtLogin.Text = "dmitriev_ei";
+        }
+        
+        public string getVersion()
+        {
+            return _version;
+        }
+        /// <summary>
+        /// Проверяет версию программы и загружает обновление
+        /// </summary>
+        private void checkForUpdate()
+        {
+            string URL = "ftp://193.178.169.117/upload/";
+            string AppName = "Update Test.rar";
+            string ServerVersion;
+            string serverVersionName = "version.txt";
+
+            FtpWebRequest req = (FtpWebRequest)WebRequest.Create(URL + serverVersionName);
+            req.Credentials = new NetworkCredential("omegajarvis", "wtvbrjns");
+            req.EnableSsl = true;
+            WebResponse res = req.GetResponse();
+            Stream str = res.GetResponseStream();
+            StreamReader tr = new StreamReader(str);
+            ServerVersion = tr.ReadLine();
+
+
+            if (getVersion() != ServerVersion)
+            {
+                FtpWebRequest client = (FtpWebRequest)WebRequest.Create(URL + AppName);
+                client.Credentials = new NetworkCredential("omegajarvis", "wtvbrjns");
+                client.EnableSsl = true;
+                client.Method = WebRequestMethods.Ftp.DownloadFile;
+                FtpWebResponse response = (FtpWebResponse)client.GetResponse();
+                Stream stream = response.GetResponseStream();
+
+                List<byte> list = new List<byte>();
+                int b;
+                while ((b = stream.ReadByte()) != -1)
+                    list.Add((byte)b);
+                File.WriteAllBytes(@"Update Test.rar", list.ToArray());
+            }
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            //Method to Update 
+            checkForUpdate();
         }
     }
 }
