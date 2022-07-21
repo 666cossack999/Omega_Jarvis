@@ -297,20 +297,36 @@ namespace Omega_Jarvis
                                             .AddParameter("Name", printerName)
                                             .Invoke();
 
-            string oldIp = getOldIpPrinter[0].Properties["PortName"].Value.ToString();
+            try
+            {
+                string oldIp = getOldIpPrinter[0].Properties["PortName"].Value.ToString();
 
-            //Удаляем принтер
-            var removePrinter = PowerShell.Create()
-                                          .AddCommand("Remove-Printer")
-                                          .AddParameter("ComputerName", computerName)
-                                          .AddParameter("Name", printerName)
-                                          .Invoke();
-            //Удаляем старый порт
-            var removeOldIpPrinter = PowerShell.Create()
-                                               .AddCommand("Remove-PrinterPort")
-                                               .AddParameter("ComputerName", computerName)
-                                               .AddParameter("Name", oldIp)
-                                               .Invoke();
+                //Удаляем принтер
+                var removePrinter = PowerShell.Create()
+                                              .AddCommand("Remove-Printer")
+                                              .AddParameter("ComputerName", computerName)
+                                              .AddParameter("Name", printerName)
+                                              .Invoke();
+                //Удаляем старый порт
+                var removeOldIpPrinter = PowerShell.Create()
+                                                   .AddCommand("Remove-PrinterPort")
+                                                   .AddParameter("ComputerName", computerName)
+                                                   .AddParameter("Name", oldIp)
+                                                   .Invoke();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                            ex.Message.ToString() + $" Машина {computerName}",
+                            "Сообщение",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information,
+                            MessageBoxDefaultButton.Button1,
+                            MessageBoxOptions.DefaultDesktopOnly);
+            }
+            
+
+            
 
         }
 
@@ -439,6 +455,7 @@ namespace Omega_Jarvis
             }
             
         }
+
         /// <summary>
         /// Выгружает список установленых драйверов принтера на машине
         /// </summary>

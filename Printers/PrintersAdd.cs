@@ -28,6 +28,28 @@ namespace Omega_Jarvis
             {
                 Engine.AddPrinterAsync(Data.PcName, txtPrinterIp.Text, txtPrinterName.Text, cboxDrivers.Text, _PushToLogDelegate);
             }
+            if (cbPrinterToTs01.Checked)
+            {
+                foreach (string item in Data.ts01)
+                {
+                    Engine.AddPrinterAsync(item, txtPrinterIp.Text, txtPrinterName.Text, cboxDrivers.Text, _PushToLogDelegate);
+                }
+            }
+            if (cbPrinterToRdp.Checked)
+            {
+                foreach (var item in Data.rdp)
+                {
+                    Engine.AddPrinterAsync(item, txtPrinterIp.Text, txtPrinterName.Text, cboxDrivers.Text, _PushToLogDelegate);
+                }
+            }
+            if (cbPrinterToMwmts02.Checked)
+            {
+                Engine.AddPrinterAsync(Data.mwmts02, txtPrinterIp.Text, txtPrinterName.Text, cboxDrivers.Text, _PushToLogDelegate);
+            }
+            if (cbPrinterToMwmts04.Checked)
+            {
+                Engine.AddPrinterAsync(Data.mwmts04, txtPrinterIp.Text, txtPrinterName.Text, cboxDrivers.Text, _PushToLogDelegate);
+            }
         }
     }
 }

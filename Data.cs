@@ -10,7 +10,34 @@ namespace Omega_Jarvis
         public static string ServerImagePath { get; set; }
         public static List<string> PrinterDrivers { get; set; }
 
+        #region Сервера
+        //Ферма TS01
+        public static string[] ts01 = new string[]
+        {
+            @"m-ts01v",
+            @"m-ts03v",
+            @"m-ts04v"
+        };
+        //Ферма RDP
+        public static string[] rdp = new string[]
+        {
+            @"srv-rdsh-c1-01",
+            @"srv-rdsh-c1-02",
+            @"srv-rdsh-c1-03",
+            @"srv-rdsh-c1-04",
+            @"srv-rdsh-c1-05",
+            @"srv-rdsh-c1-06",
+            @"srv-rdsh-c1-07",
+            @"srv-rdsh-c1-08",
+            @"srv-rdsh-c1-09",
+            @"srv-rdsh-c1-10"
+        };
+        //Сервера с ТСД
+        public static string mwmts02 = @"m-wmts02";
+        public static string mwmts04 = @"m-wmts04";
+        #endregion
 
+        #region Группы 1С
         //Группы 1С в AD
         public const string adBuh = @"1cbases_buhkorp";
         public const string adUpr = @"1cbases_upr_trackservice";
@@ -23,8 +50,9 @@ namespace Omega_Jarvis
         public const string adBuhTruck = @"1cbases_buhomegatrack";
         public const string adBuhRbCopy = @"1cbases_copybprb";
         public const string adZupRb = @"1cbases_zuprb";
+        #endregion
 
-
+        #region Ярлыки 1С
         //Ярлыки баз 1С
         //РФ
         public const string doc = @"CommonInfoBases=\\m-1capp01\Список ярлыков БД\S8_Doc.v8i";
@@ -39,7 +67,6 @@ namespace Omega_Jarvis
         public const string buhTruck = @"CommonInfoBases=\\m-1capp01\Список ярлыков БД\Бухгалтерия Омега Трак (Белоруссия).v8i";
         public const string buhRbCopy = @"CommonInfoBases=\\m-1capp01\Список ярлыков БД\БП РБ 2.1 КОПИЯ.v8i";
         public const string zupRb = @"CommonInfoBases=\\m-1capp01\Список ярлыков БД\ЗУП 3.0 РБ.v8i";
-        
-        
+        #endregion
     }
 }
