@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.txtPC = new System.Windows.Forms.TextBox();
             this.txtLogin = new System.Windows.Forms.TextBox();
             this.labelPC = new System.Windows.Forms.Label();
@@ -52,15 +53,19 @@
             this.rb1CToPC = new System.Windows.Forms.RadioButton();
             this.tbLog = new System.Windows.Forms.TextBox();
             this.btnCheckLoginPc = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.mainMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.обратнаяСвязьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gbAllButtons.SuspendLayout();
             this.gbGroups.SuspendLayout();
             this.gbPrinters.SuspendLayout();
             this.gbBase1C.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtPC
             // 
-            this.txtPC.Location = new System.Drawing.Point(12, 29);
+            this.txtPC.Location = new System.Drawing.Point(12, 48);
             this.txtPC.Name = "txtPC";
             this.txtPC.Size = new System.Drawing.Size(120, 20);
             this.txtPC.TabIndex = 0;
@@ -68,7 +73,7 @@
             // 
             // txtLogin
             // 
-            this.txtLogin.Location = new System.Drawing.Point(144, 29);
+            this.txtLogin.Location = new System.Drawing.Point(144, 48);
             this.txtLogin.Name = "txtLogin";
             this.txtLogin.Size = new System.Drawing.Size(122, 20);
             this.txtLogin.TabIndex = 1;
@@ -77,7 +82,7 @@
             // labelPC
             // 
             this.labelPC.AutoSize = true;
-            this.labelPC.Location = new System.Drawing.Point(12, 9);
+            this.labelPC.Location = new System.Drawing.Point(12, 28);
             this.labelPC.Name = "labelPC";
             this.labelPC.Size = new System.Drawing.Size(50, 13);
             this.labelPC.TabIndex = 1;
@@ -86,7 +91,7 @@
             // labelLogin
             // 
             this.labelLogin.AutoSize = true;
-            this.labelLogin.Location = new System.Drawing.Point(146, 9);
+            this.labelLogin.Location = new System.Drawing.Point(146, 28);
             this.labelLogin.Name = "labelLogin";
             this.labelLogin.Size = new System.Drawing.Size(38, 13);
             this.labelLogin.TabIndex = 1;
@@ -98,7 +103,7 @@
             this.gbAllButtons.Controls.Add(this.gbPrinters);
             this.gbAllButtons.Controls.Add(this.lblProgress);
             this.gbAllButtons.Controls.Add(this.gbBase1C);
-            this.gbAllButtons.Location = new System.Drawing.Point(12, 55);
+            this.gbAllButtons.Location = new System.Drawing.Point(12, 81);
             this.gbAllButtons.Name = "gbAllButtons";
             this.gbAllButtons.Size = new System.Drawing.Size(367, 383);
             this.gbAllButtons.TabIndex = 2;
@@ -281,7 +286,7 @@
             // 
             // tbLog
             // 
-            this.tbLog.Location = new System.Drawing.Point(12, 444);
+            this.tbLog.Location = new System.Drawing.Point(12, 470);
             this.tbLog.Multiline = true;
             this.tbLog.Name = "tbLog";
             this.tbLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -290,7 +295,7 @@
             // 
             // btnCheckLoginPc
             // 
-            this.btnCheckLoginPc.Location = new System.Drawing.Point(272, 27);
+            this.btnCheckLoginPc.Location = new System.Drawing.Point(272, 46);
             this.btnCheckLoginPc.Name = "btnCheckLoginPc";
             this.btnCheckLoginPc.Size = new System.Drawing.Size(107, 23);
             this.btnCheckLoginPc.TabIndex = 2;
@@ -298,11 +303,37 @@
             this.btnCheckLoginPc.UseVisualStyleBackColor = true;
             this.btnCheckLoginPc.Click += new System.EventHandler(this.btnCheckLoginPc_Click);
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mainMenu});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(390, 24);
+            this.menuStrip1.TabIndex = 11;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // mainMenu
+            // 
+            this.mainMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.обратнаяСвязьToolStripMenuItem});
+            this.mainMenu.Name = "mainMenu";
+            this.mainMenu.Size = new System.Drawing.Size(94, 20);
+            this.mainMenu.Text = "О программе";
+            this.mainMenu.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // обратнаяСвязьToolStripMenuItem
+            // 
+            this.обратнаяСвязьToolStripMenuItem.Name = "обратнаяСвязьToolStripMenuItem";
+            this.обратнаяСвязьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.обратнаяСвязьToolStripMenuItem.Text = "Обратная связь";
+            this.обратнаяСвязьToolStripMenuItem.Click += new System.EventHandler(this.обратнаяСвязьToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(390, 533);
+            this.ClientSize = new System.Drawing.Size(390, 562);
             this.Controls.Add(this.btnCheckLoginPc);
             this.Controls.Add(this.tbLog);
             this.Controls.Add(this.gbAllButtons);
@@ -310,7 +341,10 @@
             this.Controls.Add(this.labelPC);
             this.Controls.Add(this.txtLogin);
             this.Controls.Add(this.txtPC);
+            this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Omega_Jarvis by Jackson";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -322,6 +356,8 @@
             this.gbPrinters.PerformLayout();
             this.gbBase1C.ResumeLayout(false);
             this.gbBase1C.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -353,6 +389,9 @@
         private System.Windows.Forms.TextBox txtGroupsTo;
         private System.Windows.Forms.TextBox txtGroupsFrom;
         private System.Windows.Forms.Button btnCopyGroups;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem mainMenu;
+        private System.Windows.Forms.ToolStripMenuItem обратнаяСвязьToolStripMenuItem;
     }
 }
 

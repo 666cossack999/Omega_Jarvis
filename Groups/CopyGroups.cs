@@ -8,12 +8,14 @@ namespace Omega_Jarvis.Groups
     {
         private string _groupsFromLogin;
         private string _groupsToLogin;
+        private Action<string> _pushToLogValueDelegate;
 
-        public CopyGroups(string groupsFromLogin, string groupsToLogin)
+        public CopyGroups(string groupsFromLogin, string groupsToLogin, Action<string> pushToLogValueDelegate)
         {
             InitializeComponent();
             _groupsFromLogin = groupsFromLogin;
             _groupsToLogin = groupsToLogin;
+            _pushToLogValueDelegate = pushToLogValueDelegate;
         }
 
         private void CopyGroups_Load(object sender, EventArgs e)
@@ -29,6 +31,9 @@ namespace Omega_Jarvis.Groups
             PushGroupTo();
         }
 
+        /// <summary>
+        /// Добавляет элемент в список кому
+        /// </summary>
         private void PushGroupTo()
         {
             var selectedItems = listBoxFrom.SelectedItems;
@@ -39,6 +44,9 @@ namespace Omega_Jarvis.Groups
             }
         }
 
+        /// <summary>
+        /// Удаляет элемент из списка "Кому"
+        /// </summary>
         private void RemoveGroupTo()
         {
             List<string> items = new List<string>();
@@ -57,14 +65,43 @@ namespace Omega_Jarvis.Groups
             lblCountValueTo.Text = ListBoxTo.Items.Count.ToString();
         }
 
-        private void btnOneGroup_Click(object sender, EventArgs e)
+        private void btnGroupPush_Click(object sender, EventArgs e)
         {
             PushGroupTo();
+        }
+
+        private void btnRemoveGroup_Click(object sender, EventArgs e)
+        {
+            RemoveGroupTo();
         }
 
         private void ListBoxTo_DoubleClick(object sender, EventArgs e)
         {
             RemoveGroupTo();
+        }
+
+        private void btnAllGroupPush_Click(object sender, EventArgs e)
+        {
+            foreach (var item in Data.UserFromGroups)
+            {
+                ListBoxTo.Items.Add(item);
+            }
+            lblCountValueTo.Text = ListBoxTo.Items.Count.ToString();
+        }
+
+        private void btnAllGroupClear_Click(object sender, EventArgs e)
+        {
+            ListBoxTo.Items.Clear();
+            lblCountValueTo.Text = ListBoxTo.Items.Count.ToString();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            foreach (string item in ListBoxTo.Items)
+            {
+                Engine.PushUserToGroupAsync(_groupsToLogin, item, _pushToLogValueDelegate);
+            }
+            
         }
     }
 }

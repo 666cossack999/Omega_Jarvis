@@ -191,6 +191,7 @@
             this.ClientSize = new System.Drawing.Size(558, 122);
             this.Controls.Add(this.lbSupport);
             this.Controls.Add(this.gbPrintersAdd);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PrintersAdd";
             this.Text = "Добавить принтер";

@@ -529,5 +529,35 @@ namespace Omega_Jarvis
 
             return list;
         }
+    
+        public static void PushUserToGroup(string login, string adGroup)
+        {
+            foreach (var item in Data.dc)
+            {
+                try
+                {
+                    var addUserToGroup = PowerShell.Create()
+                                               .AddScript($"Add-ADGroupMember {item} -Identity \"{adGroup}\" -Members \"{login}\"")
+                                                .Invoke();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(
+                                ex.Message.ToString(),
+                                "Сообщение",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information,
+                                MessageBoxDefaultButton.Button1,
+                                MessageBoxOptions.DefaultDesktopOnly);
+                }
+            }     
+        }
+
+        public async static void PushUserToGroupAsync(string login, string adGroup, Action<string> pushToLogValueDelegate)
+        {
+            await Task.Run(() => PushUserToGroup(login, adGroup));
+
+            pushToLogValueDelegate($"Пользователь {login} добавлен в группу {adGroup}");
+        }
     }
 }

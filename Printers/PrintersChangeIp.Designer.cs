@@ -30,16 +30,16 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrintersChangeIp));
             this.gbChangeIpPrinter = new System.Windows.Forms.GroupBox();
-            this.txtPrinterName = new System.Windows.Forms.TextBox();
-            this.lbPrintName = new System.Windows.Forms.Label();
-            this.lbNewIp = new System.Windows.Forms.Label();
-            this.txtNewIp = new System.Windows.Forms.TextBox();
-            this.cbPc = new System.Windows.Forms.CheckBox();
-            this.cbTs01 = new System.Windows.Forms.CheckBox();
-            this.cbRDP = new System.Windows.Forms.CheckBox();
-            this.cbMwmts02 = new System.Windows.Forms.CheckBox();
-            this.cbMwmts04 = new System.Windows.Forms.CheckBox();
             this.btnChangeIp = new System.Windows.Forms.Button();
+            this.cbMwmts04 = new System.Windows.Forms.CheckBox();
+            this.cbMwmts02 = new System.Windows.Forms.CheckBox();
+            this.cbRDP = new System.Windows.Forms.CheckBox();
+            this.cbTs01 = new System.Windows.Forms.CheckBox();
+            this.cbPc = new System.Windows.Forms.CheckBox();
+            this.lbNewIp = new System.Windows.Forms.Label();
+            this.lbPrintName = new System.Windows.Forms.Label();
+            this.txtNewIp = new System.Windows.Forms.TextBox();
+            this.txtPrinterName = new System.Windows.Forms.TextBox();
             this.gbChangeIpPrinter.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,77 +61,15 @@
             this.gbChangeIpPrinter.TabIndex = 0;
             this.gbChangeIpPrinter.TabStop = false;
             // 
-            // txtPrinterName
+            // btnChangeIp
             // 
-            this.txtPrinterName.Location = new System.Drawing.Point(6, 32);
-            this.txtPrinterName.Name = "txtPrinterName";
-            this.txtPrinterName.Size = new System.Drawing.Size(100, 20);
-            this.txtPrinterName.TabIndex = 1;
-            // 
-            // lbPrintName
-            // 
-            this.lbPrintName.AutoSize = true;
-            this.lbPrintName.Location = new System.Drawing.Point(6, 16);
-            this.lbPrintName.Name = "lbPrintName";
-            this.lbPrintName.Size = new System.Drawing.Size(79, 13);
-            this.lbPrintName.TabIndex = 2;
-            this.lbPrintName.Text = "Имя принтера";
-            // 
-            // lbNewIp
-            // 
-            this.lbNewIp.AutoSize = true;
-            this.lbNewIp.Location = new System.Drawing.Point(129, 16);
-            this.lbNewIp.Name = "lbNewIp";
-            this.lbNewIp.Size = new System.Drawing.Size(54, 13);
-            this.lbNewIp.TabIndex = 2;
-            this.lbNewIp.Text = "Новый IP";
-            // 
-            // txtNewIp
-            // 
-            this.txtNewIp.Location = new System.Drawing.Point(132, 32);
-            this.txtNewIp.Name = "txtNewIp";
-            this.txtNewIp.Size = new System.Drawing.Size(100, 20);
-            this.txtNewIp.TabIndex = 1;
-            // 
-            // cbPc
-            // 
-            this.cbPc.AutoSize = true;
-            this.cbPc.Location = new System.Drawing.Point(245, 19);
-            this.cbPc.Name = "cbPc";
-            this.cbPc.Size = new System.Drawing.Size(41, 17);
-            this.cbPc.TabIndex = 3;
-            this.cbPc.Text = "ПК";
-            this.cbPc.UseVisualStyleBackColor = true;
-            // 
-            // cbTs01
-            // 
-            this.cbTs01.AutoSize = true;
-            this.cbTs01.Location = new System.Drawing.Point(245, 42);
-            this.cbTs01.Name = "cbTs01";
-            this.cbTs01.Size = new System.Drawing.Size(52, 17);
-            this.cbTs01.TabIndex = 3;
-            this.cbTs01.Text = "TS01";
-            this.cbTs01.UseVisualStyleBackColor = true;
-            // 
-            // cbRDP
-            // 
-            this.cbRDP.AutoSize = true;
-            this.cbRDP.Location = new System.Drawing.Point(245, 65);
-            this.cbRDP.Name = "cbRDP";
-            this.cbRDP.Size = new System.Drawing.Size(49, 17);
-            this.cbRDP.TabIndex = 3;
-            this.cbRDP.Text = "RDP";
-            this.cbRDP.UseVisualStyleBackColor = true;
-            // 
-            // cbMwmts02
-            // 
-            this.cbMwmts02.AutoSize = true;
-            this.cbMwmts02.Location = new System.Drawing.Point(245, 88);
-            this.cbMwmts02.Name = "cbMwmts02";
-            this.cbMwmts02.Size = new System.Drawing.Size(73, 17);
-            this.cbMwmts02.TabIndex = 3;
-            this.cbMwmts02.Text = "m-wmts02";
-            this.cbMwmts02.UseVisualStyleBackColor = true;
+            this.btnChangeIp.Location = new System.Drawing.Point(6, 61);
+            this.btnChangeIp.Name = "btnChangeIp";
+            this.btnChangeIp.Size = new System.Drawing.Size(226, 67);
+            this.btnChangeIp.TabIndex = 4;
+            this.btnChangeIp.Text = "Сменить";
+            this.btnChangeIp.UseVisualStyleBackColor = true;
+            this.btnChangeIp.Click += new System.EventHandler(this.btnChangeIp_Click);
             // 
             // cbMwmts04
             // 
@@ -143,15 +81,77 @@
             this.cbMwmts04.Text = "m-wmts04";
             this.cbMwmts04.UseVisualStyleBackColor = true;
             // 
-            // btnChangeIp
+            // cbMwmts02
             // 
-            this.btnChangeIp.Location = new System.Drawing.Point(6, 61);
-            this.btnChangeIp.Name = "btnChangeIp";
-            this.btnChangeIp.Size = new System.Drawing.Size(226, 67);
-            this.btnChangeIp.TabIndex = 4;
-            this.btnChangeIp.Text = "Сменить";
-            this.btnChangeIp.UseVisualStyleBackColor = true;
-            this.btnChangeIp.Click += new System.EventHandler(this.btnChangeIp_Click);
+            this.cbMwmts02.AutoSize = true;
+            this.cbMwmts02.Location = new System.Drawing.Point(245, 88);
+            this.cbMwmts02.Name = "cbMwmts02";
+            this.cbMwmts02.Size = new System.Drawing.Size(73, 17);
+            this.cbMwmts02.TabIndex = 3;
+            this.cbMwmts02.Text = "m-wmts02";
+            this.cbMwmts02.UseVisualStyleBackColor = true;
+            // 
+            // cbRDP
+            // 
+            this.cbRDP.AutoSize = true;
+            this.cbRDP.Location = new System.Drawing.Point(245, 65);
+            this.cbRDP.Name = "cbRDP";
+            this.cbRDP.Size = new System.Drawing.Size(49, 17);
+            this.cbRDP.TabIndex = 3;
+            this.cbRDP.Text = "RDP";
+            this.cbRDP.UseVisualStyleBackColor = true;
+            // 
+            // cbTs01
+            // 
+            this.cbTs01.AutoSize = true;
+            this.cbTs01.Location = new System.Drawing.Point(245, 42);
+            this.cbTs01.Name = "cbTs01";
+            this.cbTs01.Size = new System.Drawing.Size(52, 17);
+            this.cbTs01.TabIndex = 3;
+            this.cbTs01.Text = "TS01";
+            this.cbTs01.UseVisualStyleBackColor = true;
+            // 
+            // cbPc
+            // 
+            this.cbPc.AutoSize = true;
+            this.cbPc.Location = new System.Drawing.Point(245, 19);
+            this.cbPc.Name = "cbPc";
+            this.cbPc.Size = new System.Drawing.Size(41, 17);
+            this.cbPc.TabIndex = 3;
+            this.cbPc.Text = "ПК";
+            this.cbPc.UseVisualStyleBackColor = true;
+            // 
+            // lbNewIp
+            // 
+            this.lbNewIp.AutoSize = true;
+            this.lbNewIp.Location = new System.Drawing.Point(129, 16);
+            this.lbNewIp.Name = "lbNewIp";
+            this.lbNewIp.Size = new System.Drawing.Size(54, 13);
+            this.lbNewIp.TabIndex = 2;
+            this.lbNewIp.Text = "Новый IP";
+            // 
+            // lbPrintName
+            // 
+            this.lbPrintName.AutoSize = true;
+            this.lbPrintName.Location = new System.Drawing.Point(6, 16);
+            this.lbPrintName.Name = "lbPrintName";
+            this.lbPrintName.Size = new System.Drawing.Size(79, 13);
+            this.lbPrintName.TabIndex = 2;
+            this.lbPrintName.Text = "Имя принтера";
+            // 
+            // txtNewIp
+            // 
+            this.txtNewIp.Location = new System.Drawing.Point(132, 32);
+            this.txtNewIp.Name = "txtNewIp";
+            this.txtNewIp.Size = new System.Drawing.Size(100, 20);
+            this.txtNewIp.TabIndex = 1;
+            // 
+            // txtPrinterName
+            // 
+            this.txtPrinterName.Location = new System.Drawing.Point(6, 32);
+            this.txtPrinterName.Name = "txtPrinterName";
+            this.txtPrinterName.Size = new System.Drawing.Size(100, 20);
+            this.txtPrinterName.TabIndex = 1;
             // 
             // PrintersChangeIp
             // 
@@ -159,6 +159,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(353, 160);
             this.Controls.Add(this.gbChangeIpPrinter);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PrintersChangeIp";
             this.Text = "Сменить IP принтера";

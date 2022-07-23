@@ -56,6 +56,7 @@
             this.ClientSize = new System.Drawing.Size(471, 65);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pbUpdate);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Updater";
             this.Text = "Обновляю";

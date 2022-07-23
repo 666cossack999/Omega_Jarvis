@@ -12,6 +12,19 @@ namespace Omega_Jarvis
         public static List<string> UserFromGroups { get; set; }
         public static List<string> UserToGroups { get; set; }
 
+        #region Контроллеры домена
+        public static string[] dc = new string[]
+        {
+            @"DC-DC-01.etsp.ru",
+            @"DC-DC-02.etsp.ru",
+            @"HQ-DC-01.etsp.ru",
+            @"HQ-DC-02.etsp.ru",
+            @"HQ-DC-03.etsp.ru",
+            @"MIN-DC01.etsp.ru",
+            @"MIN-DC02.etsp.ru"
+        };
+        #endregion
+
         #region Сервера
         //Ферма TS01
         public static string[] ts01 = new string[]

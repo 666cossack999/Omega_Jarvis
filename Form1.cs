@@ -1,6 +1,7 @@
 ﻿using Omega_Jarvis.Groups;
 using Omega_Jarvis.Printers;
 using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Net;
 using System.Windows.Forms;
@@ -259,8 +260,13 @@ namespace Omega_Jarvis
             Engine.CheckUserInAdAsync(txtGroupsTo.Text);
             Data.UserFromGroups = Engine.CheckUserGroups(txtGroupsFrom.Text);
 
-            CopyGroups copygroups = new CopyGroups(txtGroupsFrom.Text, txtGroupsTo.Text);
+            CopyGroups copygroups = new CopyGroups(txtGroupsFrom.Text, txtGroupsTo.Text, _pushToLogValueDelegate);
             copygroups.Show();
+        }
+
+        private void обратнаяСвязьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start(@"mailto:omegajarvis@lenta.ru");
         }
     }
 }

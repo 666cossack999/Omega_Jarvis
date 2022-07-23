@@ -38,13 +38,14 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnAllGroupClear = new System.Windows.Forms.Button();
             this.btnAllGroupPush = new System.Windows.Forms.Button();
-            this.btnGroupClear = new System.Windows.Forms.Button();
+            this.btnRemoveGroup = new System.Windows.Forms.Button();
             this.btnGroupPush = new System.Windows.Forms.Button();
             this.ListBoxTo = new System.Windows.Forms.ListBox();
             this.lblGroupsToLogin = new System.Windows.Forms.Label();
             this.lblCountTo = new System.Windows.Forms.Label();
             this.lblCountFrom = new System.Windows.Forms.Label();
             this.lblGroupsFromLogin = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -83,7 +84,7 @@
             this.panel1.Controls.Add(this.btnSave);
             this.panel1.Controls.Add(this.btnAllGroupClear);
             this.panel1.Controls.Add(this.btnAllGroupPush);
-            this.panel1.Controls.Add(this.btnGroupClear);
+            this.panel1.Controls.Add(this.btnRemoveGroup);
             this.panel1.Controls.Add(this.btnGroupPush);
             this.panel1.Controls.Add(this.ListBoxTo);
             this.panel1.Controls.Add(this.listBoxFrom);
@@ -93,7 +94,7 @@
             this.panel1.Controls.Add(this.lblCountFrom);
             this.panel1.Controls.Add(this.lblGroupsFromLogin);
             this.panel1.Controls.Add(this.lblFrom);
-            this.panel1.Location = new System.Drawing.Point(12, 12);
+            this.panel1.Location = new System.Drawing.Point(12, 23);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(776, 426);
             this.panel1.TabIndex = 2;
@@ -122,6 +123,7 @@
             this.btnSave.TabIndex = 2;
             this.btnSave.Text = "Сохранить";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnAllGroupClear
             // 
@@ -131,6 +133,7 @@
             this.btnAllGroupClear.TabIndex = 2;
             this.btnAllGroupClear.Text = "<<-";
             this.btnAllGroupClear.UseVisualStyleBackColor = true;
+            this.btnAllGroupClear.Click += new System.EventHandler(this.btnAllGroupClear_Click);
             // 
             // btnAllGroupPush
             // 
@@ -140,16 +143,17 @@
             this.btnAllGroupPush.TabIndex = 2;
             this.btnAllGroupPush.Text = "->>";
             this.btnAllGroupPush.UseVisualStyleBackColor = true;
+            this.btnAllGroupPush.Click += new System.EventHandler(this.btnAllGroupPush_Click);
             // 
-            // btnGroupClear
+            // btnRemoveGroup
             // 
-            this.btnGroupClear.Location = new System.Drawing.Point(362, 241);
-            this.btnGroupClear.Name = "btnGroupClear";
-            this.btnGroupClear.Size = new System.Drawing.Size(44, 23);
-            this.btnGroupClear.TabIndex = 2;
-            this.btnGroupClear.Text = "<-";
-            this.btnGroupClear.UseVisualStyleBackColor = true;
-            this.btnGroupClear.Click += new System.EventHandler(this.btnOneGroup_Click);
+            this.btnRemoveGroup.Location = new System.Drawing.Point(362, 241);
+            this.btnRemoveGroup.Name = "btnRemoveGroup";
+            this.btnRemoveGroup.Size = new System.Drawing.Size(44, 23);
+            this.btnRemoveGroup.TabIndex = 2;
+            this.btnRemoveGroup.Text = "<-";
+            this.btnRemoveGroup.UseVisualStyleBackColor = true;
+            this.btnRemoveGroup.Click += new System.EventHandler(this.btnRemoveGroup_Click);
             // 
             // btnGroupPush
             // 
@@ -159,7 +163,7 @@
             this.btnGroupPush.TabIndex = 2;
             this.btnGroupPush.Text = "->";
             this.btnGroupPush.UseVisualStyleBackColor = true;
-            this.btnGroupPush.Click += new System.EventHandler(this.btnOneGroup_Click);
+            this.btnGroupPush.Click += new System.EventHandler(this.btnGroupPush_Click);
             // 
             // ListBoxTo
             // 
@@ -206,12 +210,23 @@
             this.lblGroupsFromLogin.Size = new System.Drawing.Size(0, 13);
             this.lblGroupsFromLogin.TabIndex = 0;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(259, 7);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(372, 13);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Группы в списке появятся в течении 10 минут(Как отработает реплика)";
+            // 
             // CopyGroups
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(798, 450);
+            this.ClientSize = new System.Drawing.Size(798, 461);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CopyGroups";
             this.Text = "CopyGroups";
@@ -219,6 +234,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -239,6 +255,7 @@
         private System.Windows.Forms.Label lblGroupsToLogin;
         private System.Windows.Forms.Label lblGroupsFromLogin;
         private System.Windows.Forms.Button btnAllGroupClear;
-        private System.Windows.Forms.Button btnGroupClear;
+        private System.Windows.Forms.Button btnRemoveGroup;
+        private System.Windows.Forms.Label label1;
     }
 }
