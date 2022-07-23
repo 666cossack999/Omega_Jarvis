@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Management.Automation;
-using System.Management;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -25,27 +24,42 @@ namespace Omega_Jarvis
                                      .Invoke();
                 return true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                MessageBox.Show(
+                            ex.Message.ToString(),
+                            "Сообщение",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information,
+                            MessageBoxDefaultButton.Button1,
+                            MessageBoxOptions.DefaultDesktopOnly);
                 return false;
             }
 
         }
 
         /// <summary>
-        /// Проверяет, есть ли пользователь в AD асинхронно
+        /// Проверяет, есть ли пользователь в AD асинхронно и активирует кнопки для Баз 1С
         /// </summary>
         /// <param name="login">Логин пользователя</param>
-        /// <returns>bool</returns>
-        public async static void CheckUserInAdAsync(string login, Action activateLoginFlagsDelegate)
+        public async static void CheckUserInAdAsync(string login, Action loginFlagsActivate)
         {
             bool checkLogin = await Task.Run(() => CheckUserInAd(login));
 
             if (checkLogin)
             {
-                activateLoginFlagsDelegate();
+                loginFlagsActivate();
                 Data.Login = login;
             }
+        }
+
+        /// <summary>
+        /// Проверяет, есть ли пользователь в AD асинхронно
+        /// </summary>
+        /// <param name="login">Логин пользователя</param>
+        public async static void CheckUserInAdAsync(string login)
+        {
+           bool checkLogin = await Task.Run(() => CheckUserInAd(login));
         }
 
         /// <summary>
@@ -84,7 +98,7 @@ namespace Omega_Jarvis
                 activatePcFlagDelegate();
                 Data.PcName = pcName;
             }
-            
+
         }
 
         /// <summary>
@@ -324,9 +338,9 @@ namespace Omega_Jarvis
                             MessageBoxDefaultButton.Button1,
                             MessageBoxOptions.DefaultDesktopOnly);
             }
-            
 
-            
+
+
 
         }
 
@@ -391,7 +405,7 @@ namespace Omega_Jarvis
         /// <param name="printerName">Имя принтера</param>
         /// <param name="computerName">Имя компьютера</param>
         /// <param name="newIp">Новый IP</param>
-        public async static void  ChangeIpPrinterAsync(string printerName, string computerName, string newIp, Action<string> pushToLogDelegate)
+        public async static void ChangeIpPrinterAsync(string printerName, string computerName, string newIp, Action<string> pushToLogDelegate)
         {
             pushToLogDelegate($"Меняю IP принтера {printerName} на {computerName}");
 
@@ -430,7 +444,7 @@ namespace Omega_Jarvis
                             MessageBoxOptions.DefaultDesktopOnly);
                 return false;
             }
-            
+
         }
 
         /// <summary>
@@ -453,7 +467,7 @@ namespace Omega_Jarvis
             {
                 pushToLogDelegate($"На машине: {computerName} у принтера {oldName} Не удалось изменить имя...");
             }
-            
+
         }
 
         /// <summary>
@@ -475,9 +489,45 @@ namespace Omega_Jarvis
             {
                 list.Add(item.Properties["Name"].Value.ToString());
             }
-            
+
             return list;
         }
 
+        /// <summary>
+        /// Список групп пользователя
+        /// </summary>
+        /// <param name="login">пользователь</param>
+        /// <returns>список групп</returns>
+        public static List<string> CheckUserGroups (string login)
+        {
+            List<string> list = new List<string>();
+
+            try
+            {
+                var checkUserGroups = PowerShell.Create()
+                                            .AddScript($"Get-ADPrincipalGroupMembership {login} | Sort-Object | select -ExpandProperty name")
+                                            .Invoke();
+
+                foreach (var item in checkUserGroups)
+                {
+                    list.Add(item.BaseObject.ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                            ex.Message.ToString(),
+                            "Сообщение",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information,
+                            MessageBoxDefaultButton.Button1,
+                            MessageBoxOptions.DefaultDesktopOnly);
+
+                list.Add(ex.Message.ToString());
+            }
+            
+
+            return list;
+        }
     }
 }

@@ -1,8 +1,7 @@
-﻿using Omega_Jarvis.Printers;
+﻿using Omega_Jarvis.Groups;
+using Omega_Jarvis.Printers;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.IO;
 using System.Net;
 using System.Windows.Forms;
 
@@ -15,7 +14,7 @@ namespace Omega_Jarvis
         private Action _activatePcFlagsDelegate;
         private Action _activateLoginFlagsDelegate;
         private bool _pcChecked = false;
-        private readonly string _version = "1.0";
+        public readonly string _version = "1.0";
 
 
         public Form1()
@@ -40,15 +39,15 @@ namespace Omega_Jarvis
                 }
                 catch (Exception ex)
                 {
-                            MessageBox.Show(
-                            ex.Message.ToString(),
-                            "Сообщение",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Information,
-                            MessageBoxDefaultButton.Button1,
-                            MessageBoxOptions.DefaultDesktopOnly);
+                    MessageBox.Show(
+                    ex.Message.ToString(),
+                    "Сообщение",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information,
+                    MessageBoxDefaultButton.Button1,
+                    MessageBoxOptions.DefaultDesktopOnly);
                 }
-                
+
             }
             else if (rb1CToServer.Checked)
             {
@@ -141,7 +140,7 @@ namespace Omega_Jarvis
             btnBase1C.Enabled = false;
             rb1CToServer.Enabled = false;
             rb1CToServer.Checked = false;
-            
+
         }
 
         /// <summary>
@@ -180,6 +179,7 @@ namespace Omega_Jarvis
 
         private void txtLogin_TextChanged(object sender, EventArgs e)
         {
+            txtGroupsFrom.Text = txtLogin.Text;
             LoginFlagsDeactivate();
         }
 
@@ -220,55 +220,47 @@ namespace Omega_Jarvis
             _pushToLogValueDelegate = PushToLog;
             Data.PrinterDrivers = Engine.CheckPrinterDrivers("srv-rdsh-c1-01");
 
-
             txtPC.Text = "m-stis20";
             txtLogin.Text = "dmitriev_ei";
         }
-        
-        public string getVersion()
-        {
-            return _version;
-        }
+
         /// <summary>
         /// Проверяет версию программы и загружает обновление
         /// </summary>
         private void checkForUpdate()
         {
             string URL = "ftp://193.178.169.117/upload/";
-            string AppName = "Update Test.rar";
-            string ServerVersion;
+            string AppName = "OmegaJarvis.exe";
             string serverVersionName = "version.txt";
-
-            FtpWebRequest req = (FtpWebRequest)WebRequest.Create(URL + serverVersionName);
-            req.Credentials = new NetworkCredential("omegajarvis", "wtvbrjns");
-            req.EnableSsl = true;
-            WebResponse res = req.GetResponse();
-            Stream str = res.GetResponseStream();
-            StreamReader tr = new StreamReader(str);
-            ServerVersion = tr.ReadLine();
+            string ServerVersion = OmegaClient.GetVersion(URL + serverVersionName);
 
 
-            if (getVersion() != ServerVersion)
+
+
+            if (_version != ServerVersion)
             {
-                FtpWebRequest client = (FtpWebRequest)WebRequest.Create(URL + AppName);
-                client.Credentials = new NetworkCredential("omegajarvis", "wtvbrjns");
-                client.EnableSsl = true;
-                client.Method = WebRequestMethods.Ftp.DownloadFile;
-                FtpWebResponse response = (FtpWebResponse)client.GetResponse();
-                Stream stream = response.GetResponseStream();
-
-                List<byte> list = new List<byte>();
-                int b;
-                while ((b = stream.ReadByte()) != -1)
-                    list.Add((byte)b);
-                File.WriteAllBytes(@"Update Test.rar", list.ToArray());
+                DialogResult result = MessageBox.Show(
+                                            "Установить?",
+                                            "Вышло обновление!",
+                                            MessageBoxButtons.YesNo,
+                                            MessageBoxIcon.Information,
+                                            MessageBoxDefaultButton.Button1,
+                                            MessageBoxOptions.DefaultDesktopOnly);
+                if (result == DialogResult.Yes)
+                {
+                    Updater updater = new Updater(URL + AppName);
+                    updater.Show();
+                }
             }
         }
-        private void button1_Click(object sender, EventArgs e)
+        
+        private void btnCopyGroups_Click(object sender, EventArgs e)
         {
+            Engine.CheckUserInAdAsync(txtGroupsTo.Text);
+            Data.UserFromGroups = Engine.CheckUserGroups(txtGroupsFrom.Text);
 
-            //Method to Update 
-            checkForUpdate();
+            CopyGroups copygroups = new CopyGroups(txtGroupsFrom.Text, txtGroupsTo.Text);
+            copygroups.Show();
         }
     }
 }

@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Omega_Jarvis.Printers
@@ -24,7 +17,7 @@ namespace Omega_Jarvis.Printers
         {
             if (cbPc.Checked)
             {
-               Engine.ChangeNamePrinterAsync(Data.PcName, txtOldName.Text, txtNewName.Text, _pushToLogDelegate);
+                Engine.ChangeNamePrinterAsync(Data.PcName, txtOldName.Text, txtNewName.Text, _pushToLogDelegate);
             }
             if (cbTs01.Checked)
             {

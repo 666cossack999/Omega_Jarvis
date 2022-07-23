@@ -77,21 +77,21 @@ namespace Omega_Jarvis
                     MessageBoxDefaultButton.Button1,
                     MessageBoxOptions.DefaultDesktopOnly);
             }
-            
-            
-           
+
+
+
         }
 
         private void btnPushBaseSrv_Click(object sender, EventArgs e)
         {
-                 
+
             StreamWriter sw = new StreamWriter(Data.ConfigOnServer, false, System.Text.Encoding.Default);
 
             if (cb1cDoSrv.Checked)
             {
                 sw.WriteLine(Data.doc);
             }
-            
+
             if (cb1cBuhCorpSrv.Checked)
             {
                 sw.WriteLine(Data.buh);
@@ -109,9 +109,9 @@ namespace Omega_Jarvis
                 {
                     _PushToLogDelegate($"Не состоит в группе {Data.adBuh}");
                 }
-                
+
             }
-            
+
             if (cbUatSrv.Checked)
             {
                 sw.WriteLine(Data.uat);
@@ -128,9 +128,9 @@ namespace Omega_Jarvis
                 catch (Exception)
                 {
                     _PushToLogDelegate($"Не состоит в группе {Data.adUat}");
-                }                
+                }
             }
-                   
+
             if (cbUprSrv.Checked)
             {
                 sw.WriteLine(Data.upr);
@@ -148,9 +148,9 @@ namespace Omega_Jarvis
                 {
                     _PushToLogDelegate($"Не состоит в группе {Data.adUpr}");
                 }
-                
+
             }
-            
+
             if (cbZupSrv.Checked)
             {
                 sw.WriteLine(Data.zup);
@@ -168,9 +168,9 @@ namespace Omega_Jarvis
                 {
                     _PushToLogDelegate($"Не состоит в группе {Data.adZup}");
                 }
-                
+
             }
-        
+
             if (cbKanbanSrv.Checked)
             {
                 sw.WriteLine(Data.kanban);
@@ -188,7 +188,7 @@ namespace Omega_Jarvis
                 {
                     _PushToLogDelegate($"Не состоит в группе {Data.adKanban}");
                 }
-                
+
             }
 
             if (cbTimeTrackSrv.Checked)
@@ -208,9 +208,9 @@ namespace Omega_Jarvis
                 {
                     _PushToLogDelegate($"Не состоит в группе {Data.adTimeTracking}");
                 }
-                
+
             }
-        
+
             if (cbBuh20RbSrv.Checked)
             {
                 sw.WriteLine(Data.buh20Rb);
@@ -228,9 +228,9 @@ namespace Omega_Jarvis
                 {
                     _PushToLogDelegate($"Не состоит в группе {Data.adBuh20Rb}");
                 }
-                
+
             }
-        
+
             if (cbBuhTruckRbSrv.Checked)
             {
                 sw.WriteLine(Data.buhTruck);
@@ -248,9 +248,9 @@ namespace Omega_Jarvis
                 {
                     _PushToLogDelegate($"Не состоит в группе {Data.adBuhTruck}");
                 }
-                
+
             }
-        
+
             if (cbBuhRbCopySrv.Checked)
             {
                 sw.WriteLine(Data.buhRbCopy);
@@ -268,7 +268,7 @@ namespace Omega_Jarvis
                 {
                     _PushToLogDelegate($"Не состоит в группе {Data.adBuhRbCopy}");
                 }
-                
+
             }
 
             if (cbZupRbSrv.Checked)
@@ -288,9 +288,9 @@ namespace Omega_Jarvis
                 {
                     _PushToLogDelegate($"Не состоит в группе {Data.adZupRb}");
                 }
-                
+
             }
-        
+
             //close the file
             sw.Close();
 

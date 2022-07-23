@@ -33,6 +33,12 @@
             this.labelPC = new System.Windows.Forms.Label();
             this.labelLogin = new System.Windows.Forms.Label();
             this.gbAllButtons = new System.Windows.Forms.GroupBox();
+            this.gbGroups = new System.Windows.Forms.GroupBox();
+            this.lbGroupsTo = new System.Windows.Forms.Label();
+            this.lbGroupsFrom = new System.Windows.Forms.Label();
+            this.txtGroupsTo = new System.Windows.Forms.TextBox();
+            this.txtGroupsFrom = new System.Windows.Forms.TextBox();
+            this.btnCopyGroups = new System.Windows.Forms.Button();
             this.gbPrinters = new System.Windows.Forms.GroupBox();
             this.rbPrintersChangeName = new System.Windows.Forms.RadioButton();
             this.rbPrintersRemove = new System.Windows.Forms.RadioButton();
@@ -46,8 +52,8 @@
             this.rb1CToPC = new System.Windows.Forms.RadioButton();
             this.tbLog = new System.Windows.Forms.TextBox();
             this.btnCheckLoginPc = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.gbAllButtons.SuspendLayout();
+            this.gbGroups.SuspendLayout();
             this.gbPrinters.SuspendLayout();
             this.gbBase1C.SuspendLayout();
             this.SuspendLayout();
@@ -88,7 +94,7 @@
             // 
             // gbAllButtons
             // 
-            this.gbAllButtons.Controls.Add(this.button1);
+            this.gbAllButtons.Controls.Add(this.gbGroups);
             this.gbAllButtons.Controls.Add(this.gbPrinters);
             this.gbAllButtons.Controls.Add(this.lblProgress);
             this.gbAllButtons.Controls.Add(this.gbBase1C);
@@ -97,6 +103,62 @@
             this.gbAllButtons.Size = new System.Drawing.Size(367, 383);
             this.gbAllButtons.TabIndex = 2;
             this.gbAllButtons.TabStop = false;
+            // 
+            // gbGroups
+            // 
+            this.gbGroups.Controls.Add(this.lbGroupsTo);
+            this.gbGroups.Controls.Add(this.lbGroupsFrom);
+            this.gbGroups.Controls.Add(this.txtGroupsTo);
+            this.gbGroups.Controls.Add(this.txtGroupsFrom);
+            this.gbGroups.Controls.Add(this.btnCopyGroups);
+            this.gbGroups.Location = new System.Drawing.Point(6, 160);
+            this.gbGroups.Name = "gbGroups";
+            this.gbGroups.Size = new System.Drawing.Size(355, 89);
+            this.gbGroups.TabIndex = 11;
+            this.gbGroups.TabStop = false;
+            this.gbGroups.Text = "Копировать группы";
+            // 
+            // lbGroupsTo
+            // 
+            this.lbGroupsTo.AutoSize = true;
+            this.lbGroupsTo.Location = new System.Drawing.Point(245, 47);
+            this.lbGroupsTo.Name = "lbGroupsTo";
+            this.lbGroupsTo.Size = new System.Drawing.Size(33, 13);
+            this.lbGroupsTo.TabIndex = 2;
+            this.lbGroupsTo.Text = "Кому";
+            // 
+            // lbGroupsFrom
+            // 
+            this.lbGroupsFrom.AutoSize = true;
+            this.lbGroupsFrom.Location = new System.Drawing.Point(245, 10);
+            this.lbGroupsFrom.Name = "lbGroupsFrom";
+            this.lbGroupsFrom.Size = new System.Drawing.Size(40, 13);
+            this.lbGroupsFrom.TabIndex = 2;
+            this.lbGroupsFrom.Text = "С кого";
+            // 
+            // txtGroupsTo
+            // 
+            this.txtGroupsTo.Location = new System.Drawing.Point(248, 63);
+            this.txtGroupsTo.Name = "txtGroupsTo";
+            this.txtGroupsTo.Size = new System.Drawing.Size(100, 20);
+            this.txtGroupsTo.TabIndex = 1;
+            // 
+            // txtGroupsFrom
+            // 
+            this.txtGroupsFrom.Location = new System.Drawing.Point(248, 26);
+            this.txtGroupsFrom.Name = "txtGroupsFrom";
+            this.txtGroupsFrom.Size = new System.Drawing.Size(100, 20);
+            this.txtGroupsFrom.TabIndex = 1;
+            // 
+            // btnCopyGroups
+            // 
+            this.btnCopyGroups.Location = new System.Drawing.Point(6, 19);
+            this.btnCopyGroups.Name = "btnCopyGroups";
+            this.btnCopyGroups.Size = new System.Drawing.Size(235, 64);
+            this.btnCopyGroups.TabIndex = 0;
+            this.btnCopyGroups.Text = "Посмотреть группы";
+            this.btnCopyGroups.UseVisualStyleBackColor = true;
+            this.btnCopyGroups.Click += new System.EventHandler(this.btnCopyGroups_Click);
             // 
             // gbPrinters
             // 
@@ -236,16 +298,6 @@
             this.btnCheckLoginPc.UseVisualStyleBackColor = true;
             this.btnCheckLoginPc.Click += new System.EventHandler(this.btnCheckLoginPc_Click);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(3, 237);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -260,10 +312,12 @@
             this.Controls.Add(this.txtPC);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Form1";
-            this.Text = "Omega_Jarvis";
+            this.Text = "Omega_Jarvis by Jackson";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.gbAllButtons.ResumeLayout(false);
             this.gbAllButtons.PerformLayout();
+            this.gbGroups.ResumeLayout(false);
+            this.gbGroups.PerformLayout();
             this.gbPrinters.ResumeLayout(false);
             this.gbPrinters.PerformLayout();
             this.gbBase1C.ResumeLayout(false);
@@ -293,7 +347,12 @@
         private System.Windows.Forms.RadioButton rbPrintersRemove;
         private System.Windows.Forms.RadioButton rbPrintersChangeIp;
         private System.Windows.Forms.Button btnCheckLoginPc;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.GroupBox gbGroups;
+        private System.Windows.Forms.Label lbGroupsTo;
+        private System.Windows.Forms.Label lbGroupsFrom;
+        private System.Windows.Forms.TextBox txtGroupsTo;
+        private System.Windows.Forms.TextBox txtGroupsFrom;
+        private System.Windows.Forms.Button btnCopyGroups;
     }
 }
 

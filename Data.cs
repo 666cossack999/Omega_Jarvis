@@ -9,6 +9,8 @@ namespace Omega_Jarvis
         public static string ConfigOnServer { get; set; }
         public static string ServerImagePath { get; set; }
         public static List<string> PrinterDrivers { get; set; }
+        public static List<string> UserFromGroups { get; set; }
+        public static List<string> UserToGroups { get; set; }
 
         #region Сервера
         //Ферма TS01
